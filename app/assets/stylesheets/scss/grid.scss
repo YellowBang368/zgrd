@@ -1,0 +1,20 @@
+$main-bg-color: #F2F2F2;
+
+body {
+  background: $main-bg-color;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.vertical-align-text {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}

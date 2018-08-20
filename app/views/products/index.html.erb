@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".post-products-row").hide();
+      $(".open-products-column").click(function(){
+        $(".post-products-row").hide();
+        $(".post-products-column").show();
+      });
+      $(".open-products-row").click(function(){
+        $(".post-products-column").hide();
+        $(".post-products-row").show();
+      });
+    });
+  </script>
+</head>
+<body class="main-products">
+  <ul class="container choose-products-view">
+    <li class="open-products-column"><i class="fas fa-align-justify"></i></li>
+    <li class="open-products-row"><i class="fas fa-th-large"></i></li>
+  </ul>
+
+  <div class="post-products-column">
+    <%= render partial: "post-products-column" %>
+  </div>
+
+  <div class="post-products-row">
+    <%= render partial: "post-products-row" %>
+  </div>
+</body>
+</html>

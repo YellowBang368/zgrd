@@ -1,0 +1,50 @@
+.post-comments {
+  height: 100%;
+  .comment {
+    width: 100%;
+    margin-bottom: 1%;
+  }
+  p {
+    margin: 0;
+    font-style: "Roboto", sans-serif;
+  }
+  .title {
+    font-weight: 700;
+  }
+  .empty-text {
+    font-size: 1.2em;
+    color: #454545;
+    text-align: center;
+    margin: 0;
+  }
+  .text {
+    font-style: italic;
+    margin: 5px 0;
+  }
+  .date {
+    font-size: 15px;
+    color: #b3b3b3;
+    font-style: italic;
+  }
+  .add-new-product {
+    cursor: pointer;
+    margin-left: 15px;
+    background: #f2f2f2;
+    text-decoration: none;
+    color: #aaa;
+    border: 3px solid #ccc;
+    transition: all 0.3s ease;
+  }
+  .fa-plus {
+    transition: all 0.3s ease;
+    color: #aaa;
+    margin-left: 10px;
+  }
+  .add-new-product:hover {
+    color: #454545;
+    transform: scale(1.03);
+  }
+  .add-new-product:hover .fa-plus {
+    color: #454545;
+  }
+}

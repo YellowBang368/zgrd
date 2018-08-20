@@ -1,0 +1,33 @@
+<% if @user.comments.count > 0 %>
+  <div class="upside-menu">
+
+  </div>
+  <% @user.comments.each do |comment| %>
+    <% sender = User.find(comment.sender_id)%>
+    <div class="comment">
+      <p class='title'><%= comment.title %></p>
+      <p class='text'><%= comment.text %></p>
+      <div class="">
+        <div class="row">
+          <div class='col-sm-3'>
+            <p class='date'><%= link_to "#{sender.first_name} #{ sender.last_name}", "/users/#{sender.id}" %></p>
+          </div>
+          <div class="col"></div>
+          <div class='col-sm-4'>
+            <p class='date' style="float: right">Добавлено: <%= comment.created_at.to_s.split(" ")[0] %></p>
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="vertical-align-text">
+    <% if current_user.present? %>
+      <% if current_user == @user %>
+
+      <% else %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

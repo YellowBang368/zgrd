@@ -1,0 +1,31 @@
+<% if @user.products.count == 0 %>
+  <div class="vertical-align-text">
+    <% if current_user.present? %>
+      <% if current_user == @user %>
+        <h4 class="empty-text">У вас пока нет объявлений</h4>
+        <%= button_to new_product_path, class: "add-new-product", method: :get do %>
+          Добавить<i class="fas fa-plus"></i>
+        <% end %>
+      <% else %>
+      <h4 class="empty-text">У этого пользователя пока нет объявлений</h4>
+      <% end %>
+    <% else %>
+      <h4 class="empty-text">У этого пользователя пока нет объявлений</h4>
+    <% end %>
+  </div>
+<% else %>
+  <section class="cards">
+    <% @user.products.each do |pr| %>
+      <article class="card">
+        <%= image_tag pr.avatar.url %>
+        <div class="description">
+          <h5>
+            <%= pr.name %>
+          </h5>
+          <p class="text"><%= pr.description %></p>
+          <h3 class="price" ><%= pr.price %>$</h3>
+        </div>
+      </article>
+    <% end %>
+  </section>
+<% end %>

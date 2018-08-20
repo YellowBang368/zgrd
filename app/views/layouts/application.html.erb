@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zgrd</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!-- width of viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- SliderUI + sliderui.js-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+<body>
+  <div class="header">
+    <ul class="header-items">
+      <li><a href="#"></a></a></li> <!-- Логотип -->
+    </ul>
+    <ul class="header-items">
+      <% if user_signed_in? %>
+        <li><%= link_to "Личный кабинет", current_user %></li>
+        <li><%= link_to('Выйти', destroy_user_session_path, method: :delete) %></li>
+      <% else %>
+        <li><%= link_to('Войти', new_user_session_path)  %></li>
+        <li><%= link_to('Зарегистрироваться', new_user_registration_path)  %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="nav-bar nav-shadow">
+    <ul class="nav-bar-items">
+      <li><%= link_to "Главная", root_path %></li>
+      <li><a href="#">Связаться с оператором</a></li>
+      <li><a href="#">Выставить на продажу</a></li>
+      <li><a href="#">Было продано сегодня</a></li>
+      <li><a href="#">За последнюю неделю</a></li>
+      <li><a href="#">Самые дорогие</a></li>
+      <li id="open-filter">Фильтр<i class="fas fa-caret-down"></i></li>
+    </ul>
+    <div class="container">
+      <ul class="search-row">
+        <li class="col-sm-2">
+          <select style="width: 100%" selected='default'>
+            <option value='default'>Тип продукта</option>
+            <option value='1'>Участок</option>
+            <option value='2'>Дом</option>
+          </select>
+        </li>
+        <li class="col"><input style="width: 100%" type="text" class="seacrh-input" placeholder="Название, артикул, место"/></li>
+        <li class="col-sm-1"><button style="width: 100%; margin:0; height: 100%;" class="btn btn-search" type="button">Найти&nbsp;&nbsp;<i class="fa fa-search fa-fw"></i></button></li>
+      </ul>
+    </div>
+    <div class="filter">
+      <div class="row-price">
+          <p>
+            <a for="amount">От</a>
+            <input type="text" id="amount">
+            <a for="amount">До</a>
+            <input type="text" id="amount_1">
+          </p>
+        <div id="slider-range"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <%= yield %>
+
+
+  <footer class='navbar navbar-fixed-bottom'>
+    <ul class="flex-col">
+      <li><a href="#">О проекте</a></li>
+      <li><a href="#">Обратная связь</a></li>
+      <li><a href="#">Реклама на сайте</a></li>
+      <li><a href="#">Условия использования</a></li>
+    </ul>
+    <ul class="flex-col">
+      <li><a href="#">Наш офис</a></li>
+      <li><a href="#">Написать агенту</a></li>
+      <li><a href="#">Устройство работы</a></li>
+      <li><a href="#">Продавцы и покупатели</a></li>
+    </ul>
+    <ul class="flex-col">
+      <li><a href="#">Верификация аккаунта</a></li>
+      <li><a href="#">Гарантии</a></li>
+      <li><a href="#">Вакансии</a></li>
+      <li><a href="#">Условия конфидециальности</a></li>
+    </ul>
+    <div class="flex-col info">
+          <p><i class="far fa-copyright"></i>&nbsp;zgrd.com 2018</p>
+      <ul class="social-networks">
+        <li>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-google"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-telegram"></i></a>
+        </li>
+      </ul>
+      <p>Техническая поддержка:</p>
+      <p>8-(988)-555-78-97</p>
+    </div>
+    <div class="flex-col info">
+        <p>ООО "ЗемляЗаГородом"</p>
+        <p>Главный офис:</p>
+        <p>г. Москва, улица ......</p>
+        <p>г. Москва, улица ......</p>
+    </div>
+  </footer>
+</body>
+</html>

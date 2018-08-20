@@ -1,0 +1,43 @@
+$footer: #778f51;
+
+footer {
+  justify-content: space-around;
+  display: flex;
+  flex-flow: row;
+  background: $footer;
+  position: relative!important;
+  box-shadow: 0 0 7px rgba(0,0,0,0.5);
+  a {
+    color: white;
+  }
+  a:hover {
+    color: #dddddd;
+  }
+}
+
+footer .flex-col {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  list-style: none;
+  display: inline-flex;
+  flex-flow: column;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 14px;
+  line-height: 30px;
+  justify-content: center;
+}
+
+footer .info {
+  color: white;
+  line-height: 20px;
+}
+
+footer .social-networks {
+  padding: 0;
+  display: flex;
+  flex-flow: row;
+  list-style: none;
+  justify-content: space-between;
+  font-size: 1.5em;
+}
