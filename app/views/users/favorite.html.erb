@@ -1,5 +1,7 @@
-<section class="cards">
-  <% @user.products.each do |pr| %>
+<div class="favorite container">
+  <section class="cards">
+    <% current_user.favorite.each do |prd| %>
+    <% pr = Product.find(prd) %>
     <article class="card">
       <%= image_tag pr.avatar.url %>
       <div class="description">
@@ -10,5 +12,6 @@
         <h3 class="price" ><%= pr.price %>$</h3>
       </div>
     </article>
-  <% end %>
-</section>
+    <% end %>
+  </section>
+</div>

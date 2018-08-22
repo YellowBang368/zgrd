@@ -1,0 +1,21 @@
+<% adverts = [
+  {:background => "ff605c", :image_name => "advert1.png", link: "#"},
+  {:background => "fe57a4", :image_name => "advert2.png", link: "#"}
+  ]
+current_advert = adverts.sample
+   %>
+
+<style>
+  .ff605c {
+    background: #ff605c;
+  }
+  .fe57a4 {
+    background: #fe57a4;
+  }
+</style>
+
+<a href="<%= current_advert[:link] %>">
+  <div class="advert <%= current_advert[:background] %>" >
+    <%= image_tag current_advert[:image_name] %>
+  </div>
+</a>

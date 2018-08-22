@@ -4,6 +4,13 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @index_products = []
+    @products.each do |pr|
+      @index_products << pr if pr.hot
+    end
+    @products.each do |pr|
+      @index_products << pr if pr.hot == nil || pr.hot == false
+    end
   end
 
   def new
