@@ -18,5 +18,3 @@
 
 .byebug_history
 .git
-config/secrets.yml
-config/database.yml
