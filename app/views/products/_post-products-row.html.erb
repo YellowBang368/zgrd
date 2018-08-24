@@ -1,6 +1,6 @@
 <div class="container">
   <section class="cards">
-    <% @products.each_with_index do |pr, index| %>
+    <% show_products.each_with_index do |pr, index| %>
       <article class="card">
         <%= image_tag pr.avatar.url %>
         <div class="description">

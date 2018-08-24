@@ -1,10 +1,10 @@
 <div class="container">
   <section class="cards">
-    <% @index_products.each_with_index do |pr, index| %>
+    <% show_products.each_with_index do |pr, index| %>
       <% if index < 2 %>
         <article class="card">
       <% else %>
-        <article class="card revealator-slideup revealator-once">
+        <article class="card">
       <% end %>
         <%= image_tag pr.avatar.url %>
         <div class="description">
@@ -12,6 +12,11 @@
             <%= pr.name %>
             <% if pr.hot %>
               <i class="fas fa-fire"></i>
+            <% end %>
+            <% if current_user.present? && current_user.favorite.include?(pr.id) %>
+              <i class="fas fa-heart"></i>
+            <% else %>
+              <i class="fas fa-heart transparent"></i>
             <% end %>
           </h5>
           <p class="text"><%= pr.description %></p>

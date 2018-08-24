@@ -19,6 +19,8 @@ gem 'devise'
 gem 'bootstrap', '~> 4.1.1'
 gem 'paperclip'
 gem "jquery-rails"
+gem 'modernizr-rails'
+gem 'geoip'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

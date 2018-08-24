@@ -1,17 +1,28 @@
+<head>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".post-products-row").hide();
+      $(".open-products-column").click(function(){
+        $(".post-products-row").hide();
+        $(".post-products-column").show();
+      });
+      $(".open-products-row").click(function(){
+        $(".post-products-column").hide();
+        $(".post-products-row").show();
+      });
+    });
+  </script>
+</head>
 <div class="favorite container">
-  <section class="cards">
-    <% current_user.favorite.each do |prd| %>
-    <% pr = Product.find(prd) %>
-    <article class="card">
-      <%= image_tag pr.avatar.url %>
-      <div class="description">
-        <h5>
-          <%= pr.name %>
-        </h5>
-        <p class="text"><%= pr.description %></p>
-        <h3 class="price" ><%= pr.price %>$</h3>
-      </div>
-    </article>
-    <% end %>
-  </section>
+  <ul class="container choose-products-view">
+    <li class="open-products-column"><i class="fas fa-align-justify"></i></li>
+    <li class="open-products-row"><i class="fas fa-th-large"></i></li>
+  </ul>
+
+  <div class="post-products-column">
+    <%= render partial: "products/post-products-column", :locals => {:show_products => Product.find(current_user.favorite)} %>
+  </div>
+  <div class="post-products-row">
+    <%= render partial: "products/post-products-row", :locals => {:show_products => Product.find(current_user.favorite)} %>
+  </div>
 </div>

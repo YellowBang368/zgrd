@@ -1,43 +1,95 @@
-$footer: #778f51;
+#put-email {
+  display: flex;
+  flex-flow: row;
+  font-size: 15px;
+  position: relative;
+  background: #e4eeff;
+  padding: 14px 0;
+  justify-content: center;
+  align-items: center;
+  img {
+    margin-right: 10px;
+  }
+  p {
+    font-weight: 400;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+  }
+  input {
+    border: 0;
+    margin: 0 10px;
+    outline: none;
+    padding: 2.5px 5px;
+  }
+}
 
 footer {
-  justify-content: space-around;
+  background: #f4f4f4;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  h5 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    margin: 0 0 16px;
+    color: #454545;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  li a {
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 28px;
+    padding: 0 0 8px;
+    color: #666;
+    transition: color .3s ease;
+  }
+  li a:hover {
+    text-decoration: none;
+    color: #FF0000;
+  }
+}
+
+#copyright-block {
   display: flex;
-  flex-flow: row;
-  background: $footer;
-  position: relative!important;
-  box-shadow: 0 0 7px rgba(0,0,0,0.5);
-  a {
-    color: white;
-  }
-  a:hover {
-    color: #dddddd;
-  }
-}
-
-footer .flex-col {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  list-style: none;
-  display: inline-flex;
-  flex-flow: column;
-  margin-left: 20px;
-  margin-right: 20px;
-  font-size: 14px;
-  line-height: 30px;
-  justify-content: center;
-}
-
-footer .info {
-  color: white;
+  padding: 18px 24px;
+  font-size: 13px;
   line-height: 20px;
-}
-
-footer .social-networks {
-  padding: 0;
-  display: flex;
-  flex-flow: row;
-  list-style: none;
+  background: #e8e8e8;
+  color: #999;
   justify-content: space-between;
-  font-size: 1.5em;
+  ul.menu {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+  }
+  ul.menu a {
+    text-decoration: none;
+    color: #999;
+    margin-left: 28px;
+  }
+  ul.menu a:hover {
+    text-decoration: none;
+    color: #FF0000;
+  }
+  .copyright p {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    color: #8792a8;
+  }
+  .copyright a {
+    color: #8792a8;
+    text-decoration: none;
+  }
+  .copyright a:hover {
+    color: #FF0000;
+    text-decoration: auto;
+  }
 }

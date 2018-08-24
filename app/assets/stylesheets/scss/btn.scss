@@ -68,3 +68,19 @@
   border-bottom-right-radius: 0;
   margin-bottom: 0;
 }
+
+.btn-email {
+  padding: 6px 8px;
+  background: #dbe7fb;
+  border-radius: 2px;
+  margin-left: 10px;
+  outline: none;
+  -moz-outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-email:focus {
+  outline: none;
+  -moz-outline: none;
+}

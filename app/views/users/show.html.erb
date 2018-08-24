@@ -33,7 +33,7 @@
       <div class="col-sm-9">
         <div class="user-window">
 
-          <div class="post-products">
+          <div class="post-user-products">
             <div class="upside-menu">
               <% if @user.products.count > 0 %>
                 <ul class="choose-products-view">
@@ -51,10 +51,10 @@
 
             <% if @user.products.count > 0 %>
               <div class="post-products-column">
-                <%= render partial: "post-products-column" %>
+                <%= render partial: "products/post-products-column", :locals => {:show_products => @user.products} %>
               </div>
               <div class="post-products-row">
-                <%= render partial: "post-products-row" %>
+                <%= render partial: "products/post-products-row", :locals => {:show_products => @user.products} %>
               </div>
             <% else %>
               <div class="vertical-align-text" style="height: calc(100% - 60px);">

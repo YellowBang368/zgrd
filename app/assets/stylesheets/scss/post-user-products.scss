@@ -1,4 +1,9 @@
-.post-products{
+$main-color: #778f51;
+$main-color-hover: #91aa69;
+$nav-bar: #F2F2F2;
+
+
+.post-user-products {
   width: 100%;
   height: 100%;
   .upside-menu {
@@ -45,10 +50,8 @@
   }
 }
 
-
-.main-products {
-  .fa-fire {
-    font-size: 1em;
-    color: #FF6F29;
+.post-user-products .post-products-row {
+  .card {
+    flex: 0 1 32%;
   }
 }

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root "products#index"
 
   get "favorite", to: "users#favorite"
+  post "add_favorite", to: "users#add_favorite"
+  delete "remove_favorite", to: "users#remove_favorite"
   resources :comments, except: [:index, :show]
   resources :products
   resources :users

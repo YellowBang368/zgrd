@@ -1,1 +1,48 @@
-footer
+<div id="put-email" class="vertical-text-align">
+  <%= image_tag "envelope.svg"  %>
+  <p>Узнавайте о выгодных предложениях и получайте личные рекомендации</p>
+  <input placeholder="Электронная почта"></input>
+  <button class="btn-email">Подписаться</button>
+</div>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2 col-xs-1" style="margin-left: 10%; margin-right: 3%;">
+        <h5>Покупателям</h5>
+        <ul>
+          <li><a href="#">Как выбрать товар</a></li>
+          <li><a href="#">Обратная связь</a></li>
+          <li><a href="#">Помощь сервису</a></li>
+          <li><a href="#">Участие в исследованиях</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-3 col-xs-1">
+        <h5>Продавцам</h5>
+        <ul>
+          <li><a href="#">Войти в личный кабинет</a></li>
+          <li><a href="#">Подключение к Маркету</a></li>
+          <li><a href="#">Помощь для магазинов</a></li>
+          <li><a href="#">Сайт для партнеров</a></li>
+          <li><a href="#">Помощь для производителей</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-xs-1">
+
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="copyright-block">
+  <ul class="menu">
+    <li><a href=#>Мобильная версия</a></li>
+    <li><a href=#>Статистика</a></li>
+    <li><a href=#>Пользовательское соглашение</a></li>
+  </ul>
+  <div class="copyright">
+    <p>
+      © 2018  ООО «
+      <%= link_to "zgrd", root_path %>
+      »
+    </p>
+  </div>
+</div>
