@@ -13,7 +13,7 @@
             <% if pr.hot %>
               <i class="fas fa-fire"></i>
             <% end %>
-            <% if current_user.present? && current_user.favorite.include?(pr.id) %>
+            <% if current_user.present? && current_user.favorite != nil && current_user.favorite.include?(pr.id) %>
               <i class="fas fa-heart"></i>
             <% else %>
               <i class="fas fa-heart transparent"></i>
