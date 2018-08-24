@@ -81,6 +81,22 @@ $nav-bar: #F2F2F2;
 
 }
 
+.dp-menu {
+  position: absolute;
+  list-style: none;
+  display: flex;
+  li {
+    width: 140px;
+    img {
+      width: 100%;
+    }
+    p {
+      
+    }
+  }
+}
+
+
 .dp-background {
   width: 100%;
   height: 120px;
