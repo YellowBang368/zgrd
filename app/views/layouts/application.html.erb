@@ -77,23 +77,51 @@
   <div class="nav-bar">
     <div class="container">
       <ul class="nav-items">
-        <li>
+        <li class="dp-trigger">
+          <span class="dp-triangle"></span>
           <a href="#">Электроника</a>
           <ul class="dp-menu">
-            <li><a href="#">Web Design</a></li>
-	          <li><a href="#">User Experience</a></li>
+            <li><a href="#">
+              <i class="fas fa-headphones-alt"></i>
+              <p>Наушники</p>
+            </a></li>
+            <li><a href="#">
+              <i class="far fa-bell"></i>
+              <p>Колокольчики</p>
+            </a></li>
+            <li><a href="#">
+              <i class="fas fa-desktop"></i>
+              <p>Мониторы</p>
+            </a></li>
           </ul>
         </li>
-        <li><a href="#">Компьютеры</a></li>
-        <li><a href="#">Бытовая техника</a></li>
-        <li><a href="#">Детские товары</a></li>
-        <li><a href="#">Зоотовары</a></li>
-        <li><a href="#">Одежда, обувь</a></li>
-        <li><a href="#">Красота и здоровье</a></li>
+        <li class="dp-trigger">
+          <span class="dp-triangle"></span>
+          <a href="#">Компьютеры</a>
+          <ul class="dp-menu">
+            <li><a href="#">
+              <i class="fas fa-camera-retro"></i>
+              <p>Камеры</p>
+            </a></li>
+            <li><a href="#">
+              <i class="far fa-address-book"></i>
+              <p>Тетрадки</p>
+            </a></li>
+            <li><a href="#">
+              <i class="fas fa-desktop"></i>
+              <p>Мониторы</p>
+            </a></li>
+          </ul>
+        </li>
+        <li class="dp-trigger"><span class="dp-triangle"></span><a href="#">Бытовая техника</a></li>
+        <li class="dp-trigger"><span class="dp-triangle"></span><a href="#">Детские товары</a></li>
+        <li class="dp-trigger"><span class="dp-triangle"></span><a href="#">Зоотовары</a></li>
+        <li class="dp-trigger"><span class="dp-triangle"></span><a href="#">Одежда, обувь</a></li>
+        <li class="dp-trigger"><span class="dp-triangle"></span><a href="#">Красота и здоровье</a></li>
       </ul>
     </div>
+    <div class="dp-background"></div>
   </div>
-  <div class="dp-background"></div>
 
   <%= yield %>
 

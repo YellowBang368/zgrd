@@ -1,3 +1,22 @@
+<style>
+  .bx-wrapper {
+    height: 500px;
+    margin: 0;
+    padding: 0;
+  }
+  .bx-viewport {
+    height: 100%!important;
+  }
+  .slider {
+    width: 100%;
+    height: 800px;
+  }
+  .slider img {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
 <div class="container">
   <section class="cards">
     <% show_products.each_with_index do |pr, index| %>
@@ -23,6 +42,12 @@
           <h3 class="price" ><%= pr.price %>$</h3>
         </div>
       </article>
+      <% if index != 0 && index % 8 == 0 %>
+        <div class="slider">
+          <div><img src="https://remontdizajn.ru/wp-content/uploads/2017/01/529035d3131db74a763961c5ddedf9e5.jpg" /></div>
+          <div><img src="http://cdn.resize.sparkplatform.com/ncr/1024x768/true/20180402190011435490000000-o.jpg" /></div>
+        </div>
+      <% end %>
       <% end %>
     </section>
 </div>

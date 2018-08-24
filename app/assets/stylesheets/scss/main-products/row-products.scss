@@ -62,6 +62,7 @@ $nav-bar: #F2F2F2;
 @media (max-width: 378px) {
   .post-products-row {
     .card {
+      margin-top: 15px;
       flex: 0 1 99%;
     }
   }

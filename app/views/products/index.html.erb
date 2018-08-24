@@ -7,7 +7,9 @@
 
 </head>
 <body class="main-products">
-  <%= put_location(current_user) if current_user.present? %>
+
+  <%= request.remote_ip %>
+  <%= request.env['HTTP_X_REAL_IP'] %>
 
   <ul class="container choose-products-view">
     <li class="open-products-column"><i class="fas fa-align-justify"></i></li>
