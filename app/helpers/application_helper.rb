@@ -1,10 +1,8 @@
 module ApplicationHelper
 
-  def put_location(user)
+  def puts_location(ip)
     geoip = GeoIP.new(Rails.root.join('lib/GeoIP.dat'))
-
-
-    return ""
+    geoip.country("#{ip}").country_name
   end
 
 

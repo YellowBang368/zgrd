@@ -8,8 +8,7 @@
 </head>
 <body class="main-products">
 
-  <%= request.remote_ip.to_s + " ss" %>
-  <%= request.env['HTTP_X_REAL_IP'].to_s + " sdf" %>
+  <%= puts_location(request.remote_ip) %>
 
   <ul class="container choose-products-view">
     <li class="open-products-column"><i class="fas fa-align-justify"></i></li>
