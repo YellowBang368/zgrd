@@ -7,9 +7,8 @@ module ApplicationHelper
     else
       geoip.country(request.remote_ip).country_name
     end
-    return
-    geoip.country(request.remote_ip).country_name + " " + request.remote_ip + " \n "
-    geoip.country(request.env['REMOTE_ADDR']).country_name + " " + request.env['REMOTE_ADDR'] + "\n  "
+    return geoip.country(request.remote_ip).country_name + " " + request.remote_ip + " \n " +
+    geoip.country(request.env['REMOTE_ADDR']).country_name + " " + request.env['REMOTE_ADDR'] + "\n  " +
     geoip.country(request.env['HTTP_X_REAL_IP']).country_name + " " + request.env["HTTP_X_REAL_IP"]
   end
 
