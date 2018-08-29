@@ -1,0 +1,58 @@
+.card-top .breadcrumbs {
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 20px;
+  a {
+    cursor: pointer;
+    font-size:14px;
+    line-height:1.43;
+    text-decoration:none;
+    cursor:pointer;
+    color: #7a7a7a;
+    -webkit-transition:color .15s;
+    transition:color .15s
+  }
+  a:hover i {
+    color: #7a7a7a;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #121212;
+  }
+  span {
+    font-size: 13px;
+    line-height: 17.9333px;
+    position: relative;
+    text-decoration: none;
+    text-decoration-color: rgb(122, 122, 122);
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    transition-delay: 0s;
+    transition-duration: 0.15s;
+  }
+  i {
+    margin: 0 10px;
+  }
+
+}
+
+.card-top .views-info {
+  display: flex;
+  margin-bottom: 12px;
+  .row {
+    width: 100%;
+  }
+  p {
+    margin-right: 16px;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #7a7a7a;
+    margin: 0;
+  }
+  a {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

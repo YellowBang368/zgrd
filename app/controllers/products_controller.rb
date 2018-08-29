@@ -29,6 +29,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
+    @user = @product.user
+    @related_products = Product.all.sample(5)
   end
 
   def destroy
@@ -36,7 +39,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :price, :avatar)
+    params.require(:product).permit(:name, :description, :price, :avatar, :square, :gas, :electricity, :sewerage)
   end
 
 end

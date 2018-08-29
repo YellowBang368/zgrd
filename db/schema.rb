@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180821171138) do
+ActiveRecord::Schema.define(version: 20180828174559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,10 @@ ActiveRecord::Schema.define(version: 20180821171138) do
     t.bigint "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.boolean "hot"
+    t.float "square"
+    t.boolean "gas"
+    t.boolean "electricity"
+    t.boolean "sewerage"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -62,6 +66,7 @@ ActiveRecord::Schema.define(version: 20180821171138) do
     t.string "first_name"
     t.string "last_name"
     t.integer "favorite", array: true
+    t.string "phone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

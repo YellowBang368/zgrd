@@ -1,7 +1,20 @@
 <%= form_for @product do |f| %>
+  <p>Название</p>
   <%= f.text_field :name %><br/>
+  <p>Описание</p>
   <%= f.text_area :description %><br/>
+  <p>Цена</p>
   <%= f.text_field :price %><br/>
+  <p>Площадь</p>
+  <%= f.text_field :square %><br/>
+  <p>Главная картинка</p>
   <%= f.file_field :avatar %><br/>
+  <p>Газ</p>
+  <%= f.check_box :gas %><br/>
+  <p>Электричество</p>
+  <%= f.check_box :electricity %><br/>
+  <p>Канализация</p>
+  <%= f.check_box :sewerage %><br/>
+
   <%= f.submit %>
 <% end %>

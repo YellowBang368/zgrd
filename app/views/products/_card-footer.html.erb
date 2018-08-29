@@ -1,0 +1,27 @@
+<div class="rialtors-help">
+  <h4>Помощь надежных риэлторов</h4>
+  <p>Оставьте заявку, и специалисты подберут подходящий дом</p>
+  <button class='take-help-button'>Оставить заявку</button>
+</div>
+
+<div class="related-products">
+  <h4>Похожие предложения</h4>
+  <ul>
+    <% @related_products.each do |pr| %>
+      <li>
+        <a class="image-link" href="/products/<%= pr.id %>"><%= image_tag pr.avatar.url %></a>
+        <a class="title-link" href="/products/<%= pr.id %>">участок <%= pr.square %> сот.</a>
+        <p class="name"><%= pr.name %></p>
+        <p class="price"><%= show_price(pr.price) %> $</p>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="under-related">
+  <h4>Дополнительные предложения по продаже</h4>
+  <ul>
+    <li><a href="#">Земельные участки без посредников</a></li>
+    <li><a href="#">Земельные участки без посредников в районе Затеречный в городе Владикавказ</a></li>
+  </ul>
+</div>

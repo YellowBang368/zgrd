@@ -31,9 +31,24 @@ $nav-bar: #F2F2F2;
       padding: 1%;
       .text {
         font-size: 14px;
+        margin: 0;
+        margin-bottom: 5px;
       }
     }
+    .down-list {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      flex-flow: row;
+      margin: 0;
+      padding: 0;
+    }
+    .see-more {
+      float: right;
+      display: inline-block;
+    }
     .price {
+      display: inline-block;
       color: $main-color-hover;
       font-size: 1.1em;
     }

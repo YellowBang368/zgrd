@@ -5,10 +5,6 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-  $('.slider').bxSlider();
-});
-
-$(document).ready(function(){
   $(".post-products-row").hide()
 
   $(".choose-products-view .open-products-column").click(function(){
@@ -22,8 +18,8 @@ $(document).ready(function(){
   });
 
   var $dp_bg = $(".dp-background");
-  var $dp_menu = $(".dp-menu")
-  var $dp_triangle = $(".dp-triangle")
+  var $dp_menu = $(".dp-menu");
+  var $dp_triangle = $(".dp-triangle");
 
   $dp_bg.hide();
   $dp_menu.hide();
@@ -51,4 +47,14 @@ $(document).ready(function(){
     }
   });
 
+});
+
+$("body").ready(function(){
+  var $dp_bg = $(".dp-background");
+  var $dp_menu = $(".dp-menu");
+  var $dp_triangle = $(".dp-triangle");
+
+  $dp_bg.hide();
+  $dp_menu.hide();
+  $dp_triangle.hide();
 });
