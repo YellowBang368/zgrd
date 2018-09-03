@@ -7,26 +7,17 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <script
-      src="http://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"></script>
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <!-- width of viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- google-fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!-- SliderUI + sliderui.js-->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
     <%= stylesheet_link_tag    :application, media: :all %>
     <%= javascript_include_tag :modernizr %>
     <%= csrf_meta_tags %>
-
 
 </head>
 <body>
@@ -34,6 +25,7 @@
   <% if current_page?(root_path) %>
     <%= render partial: "layouts/advertisment" %>
   <% end %>
+
 
   <div class="header">
     <div class="container">
@@ -81,47 +73,77 @@
   <div class="nav-bar">
     <div class="container">
       <ul class="nav-items">
-        <li class="dp-trigger">
-          <span class="dp-triangle"></span>
-          <a href="#">Электроника</a>
-          <ul class="dp-menu">
-            <li><a href="#">
-              <i class="fas fa-headphones-alt"></i>
-              <p>Наушники</p>
-            </a></li>
-            <li><a href="#">
-              <i class="far fa-bell"></i>
-              <p>Колокольчики</p>
-            </a></li>
-            <li><a href="#">
-              <i class="fas fa-desktop"></i>
-              <p>Мониторы</p>
-            </a></li>
-          </ul>
-        </li>
-        <li class="dp-trigger">
-          <span class="dp-triangle"></span>
-          <a href="#">Компьютеры</a>
-          <ul class="dp-menu">
-            <li><a href="#">
-              <i class="fas fa-camera-retro"></i>
-              <p>Камеры</p>
-            </a></li>
-            <li><a href="#">
-              <i class="far fa-address-book"></i>
-              <p>Тетрадки</p>
-            </a></li>
-            <li><a href="#">
-              <i class="fas fa-desktop"></i>
-              <p>Мониторы</p>
-            </a></li>
-          </ul>
-        </li>
-        <li class="dp-trigger"><span class="dp-triangle"></span><a href="#">Бытовая техника</a></li>
-        <li class="dp-trigger"><span class="dp-triangle"></span><a href="#">Детские товары</a></li>
-        <li class="dp-trigger"><span class="dp-triangle"></span><a href="#">Зоотовары</a></li>
-        <li class="dp-trigger"><span class="dp-triangle"></span><a href="#">Одежда, обувь</a></li>
-        <li class="dp-trigger"><span class="dp-triangle"></span><a href="#">Красота и здоровье</a></li>
+        <li class="dp-trigger" data-index="first"><span class="dp-triangle"></span><a href="#">Электроника</a></li>
+        <li class="dp-trigger" data-index="second"><span class="dp-triangle"></span><a href="#">Компьютеры</a></li>
+        <li class="dp-trigger" data-index="third"><span class="dp-triangle"></span><a href="#">Бытовая техника</a></li>
+        <li class="dp-trigger" data-index="fourth"><span class="dp-triangle"></span><a href="#">Детские товары</a></li>
+        <li class="dp-trigger" data-index="fifth"><span class="dp-triangle"></span><a href="#">Зоотовары</a></li>
+        <li class="dp-trigger" data-index="sixth"><span class="dp-triangle"></span><a href="#">Одежда, обувь</a></li>
+        <li class="dp-trigger" data-index="seventh"><span class="dp-triangle"></span><a href="#">Красота и здоровье</a></li>
+      </ul>
+    </div>
+    <div class="dp-menu">
+      <ul class="dp-ul" data-index="first">
+        <li><a href="/users/sign_in"><i class="fas fa-headphones-alt"></i><p>Наушники</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Мониторы</p></a></li>
+        <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Наушники</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Мониторы</p></a></li>
+        <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Наушники</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+      </ul>
+      <ul class="dp-ul" data-index="second">
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Мониторы</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Наушники</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Мониторы</p></a></li>
+        <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Наушники</p></a></li>
+      </ul>
+      <ul class="dp-ul" data-index="third">
+        <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Наушники</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Мониторы</p></a></li>
+        <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Наушники</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Мониторы</p></a></li>
+      </ul>
+      <ul class="dp-ul" data-index="fourth">
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Мониторы</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Наушники</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Наушники</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Мониторы</p></a></li>
+        <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Наушники</p></a></li>
+      </ul>
+      <ul class="dp-ul" data-index="fifth">
+        <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Наушники</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Мониторы</p></a></li>
+        <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Наушники</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Мониторы</p></a></li>
+      </ul>
+      <ul class="dp-ul" data-index="sixth">
+        <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Наушники</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Мониторы</p></a></li>
+        <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Наушники</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Мониторы</p></a></li>
+      </ul>
+      <ul class="dp-ul" data-index="seventh">
+        <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Наушники</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Мониторы</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Мониторы</p></a></li>
+        <li><a href="#"><i class="far fa-bell"></i><p>Колокольчики</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Мониторы</p></a></li>
       </ul>
     </div>
     <div class="dp-background"></div>

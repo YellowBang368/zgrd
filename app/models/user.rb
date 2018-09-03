@@ -3,8 +3,8 @@ class User < ApplicationRecord
 
   enum status: [ :user, :admin, :agent, :owner, :manager, :blogger, :markup ]
   has_attached_file :avatar
-  has_many :products
-  has_many :comments
+  has_many :products, dependent: :destroy
+  has_many :comments, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
