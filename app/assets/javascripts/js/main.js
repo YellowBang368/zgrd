@@ -1,3 +1,15 @@
+$(document).ready(function(){ // To hide it after refresh page
+  var $dp_bg = $(".dp-background");
+  var $dp_menu = $(".dp-menu");
+  var $dp_ul = $(".dp-ul");
+  var $dp_triangle = $(".dp-triangle");
+
+  $dp_bg.hide();
+  $dp_menu.hide();
+  $dp_ul.hide();
+  $dp_triangle.hide();
+});
+
 $(document).on('turbolinks:load', function() { // I wrapped all scripts in this listener to reload it after render new page
 
   $(document).ready(function(){
