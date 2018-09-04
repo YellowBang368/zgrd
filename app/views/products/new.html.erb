@@ -1,4 +1,7 @@
-<%= form_for @product do |f| %>
+<div class="devise-form">
+  <h2>Новый товар</h2>
+
+  <%= form_for @product do |f| %>
   <p>Название</p>
   <%= f.text_field :name %><br/>
   <p>Описание</p>
@@ -17,4 +20,5 @@
   <%= f.check_box :sewerage %><br/>
 
   <%= f.submit %>
-<% end %>
+  <% end %>
+</div>

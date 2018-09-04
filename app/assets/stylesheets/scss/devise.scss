@@ -1,0 +1,22 @@
+.devise-form {
+  width: 500px;
+  min-height: 200px;
+  display: block;
+  margin: 100px auto 150px auto;
+  background: #fafafa;
+  padding: 10px 15px;
+  box-shadow: 0px 2px 13px 0px #b3b3b3;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.devise-form a {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.devise-form input {
+  margin-bottom: 15px;
+  border: 1px solid #dddddd;
+  padding: 5px 8px;
+}

@@ -21,6 +21,7 @@ gem 'paperclip'
 gem "jquery-rails"
 gem 'modernizr-rails'
 gem 'geoip'
+gem 'carrierwave'
 gem 'sypex_geo'
 
 
