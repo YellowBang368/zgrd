@@ -15,7 +15,9 @@
     </ul>
     <div class="fotorama" data-nav="thumbs">
       <%= image_tag @product.avatar.url %>
-      <img src="http://s.fotorama.io/2.jpg">
+      <% @product_attachment.each do |attachment| %>
+        <%= image_tag attachment.gallery.url %>
+      <% end %>
     </div>
     <div class="description">
       <div class="area">

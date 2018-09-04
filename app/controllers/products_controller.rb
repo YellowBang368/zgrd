@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   def new
     redirect_back fallback_location: root_path unless user_signed_in? # "fallback_location" redirect to root if no previous page
     @product = Product.new
-    @post_attachment = @product.post_attachments.build
+    @product_attachment = @product.product_attachments.build
   end
 
   def create
@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
     @product.user = current_user
     if @product.save!
       redirect_to current_user
-      params[:product_attachments]['gallery'].each do |a|
+      params[:product_attachments]["gallery"].each do |a|
         @product_attachment = @product.product_attachments.create!(:gallery => a)
       end
     else
@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :price, :avatar, :square, :gas, :electricity, :sewerage, post_attachments_attributes: [:id, :product_id, :gallery])
+    params.require(:product).permit(:name, :description, :price, :avatar, :square, :gas, :electricity, :sewerage, :product_attachments)
   end
 
 end

@@ -12,12 +12,20 @@
   <%= f.text_field :square %><br/>
   <p>Главная картинка</p>
   <%= f.file_field :avatar %><br/>
+  <p>Картинки</p>
+  <%= f.fields_for :product_attachments do |p| %>
+    <div class="field">
+      <%= p.file_field :gallery, :multiple => true, name: "product_attachments[gallery][]" %>
+    </div>
+  <% end %>
   <p>Газ</p>
   <%= f.check_box :gas %><br/>
   <p>Электричество</p>
   <%= f.check_box :electricity %><br/>
   <p>Канализация</p>
   <%= f.check_box :sewerage %><br/>
+
+
 
   <%= f.submit %>
   <% end %>

@@ -23,6 +23,7 @@ gem 'modernizr-rails'
 gem 'geoip'
 gem 'carrierwave'
 gem 'sypex_geo'
+gem 'mini_magick'
 
 
 group :development, :test do
