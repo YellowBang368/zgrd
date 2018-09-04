@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :product_attachments
   devise_for :users, controllers: { registrations: "registrations" }
   root "products#index"
 
