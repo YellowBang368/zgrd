@@ -70,3 +70,59 @@
 .fa-pencil-alt {
   margin-right: 5px;
 }
+
+.honest {
+  color: #585858;
+  background-color: rgba(0, 0, 0, 0.07);
+  border-radius: 2px;
+  font-size: 11px;
+  line-height: 15px;
+  letter-spacing: 1px;
+  max-width: 35px;
+  padding: 0 4px 0 6px;
+  text-transform: uppercase;
+}
+
+.honest.light {
+  background: #FEFBAF;
+}
+
+.honest.medium {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+.honest.heavy {
+  background: #FBB829;
+}
+
+.user-block.buy-pro {
+  margin-top: 15px;
+  height: 100px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-block .add-new-product {
+    cursor: pointer;
+    margin: 0;
+    margin-left: 15px;
+    background: #f2f2f2;
+    text-decoration: none;
+    color: #aaa;
+    border: 3px solid #ccc;
+    transition: all 0.3s ease;
+  }
+  .fa-plus {
+    transition: all 0.3s ease;
+    color: #aaa;
+    margin-left: 10px;
+  }
+  .add-new-product:hover {
+    color: #454545;
+    transform: scale(1.03);
+  }
+  .add-new-product:hover .fa-plus {
+    color: #454545;
+  }

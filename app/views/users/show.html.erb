@@ -1,31 +1,5 @@
 <head>
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $('.post-comments').hide();
-      $(".open-user-comments").click(function(){
-        $(".post-products").hide();
-        $(".post-comments").show();
-      });
-
-      $(".open-user-products").click(function(){
-        $(".post-comments").hide();
-        $(".post-products").show();
-      });
-
-    });
-
-    $(document).ready(function(){
-      $(".post-products-row").hide();
-      $(".open-products-column").click(function(){
-        $(".post-products-row").hide();
-        $(".post-products-column").show();
-      });
-      $(".open-products-row").click(function(){
-        $(".post-products-column").hide();
-        $(".post-products-row").show();
-      });
-    });
-  </script>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
 <div class="profile">
   <div class="container">
@@ -89,7 +63,10 @@
         <% end %>
         <div class="user-block">
           <%= image_tag puts_avatar(@user) %>
-          <p class="user-name"><%= @user.first_name + " " + @user.last_name %></p>
+          <p class="user-name"><%= @user.first_name + " " + @user.last_name %>
+          <% if @user.pro != "nil" %>
+            <span class='honest'>PRO</span>
+          <% end %>
           <p class="user-status">
             <%= puts_status(@user) %>
             <%= image_tag puts_confirmed(@user), class: "confirmed tooltip-hover" %>
@@ -102,6 +79,71 @@
         <% if current_user.present? && current_user.id != @user.id %>
           <button class="btn btn-red btn-sticky-top">Пожаловаться</button>
         <% end %>
+        <div class="user-block buy-pro">
+          <button class="add-new-product open-dialog">Оформить подписку PRO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="overlay"></div>
+<div id="modal_form">
+  <div class="head">
+    <p>Выберите тарифный план</p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="db-wrapper">
+          <div class="db-pricing-seven">
+            <ul>
+              <li class="price"><i class="fas fa-trophy"></i>Первый - 59$/месяц
+              </li>
+              <li>Первые места в рейтинге</li>
+              <li>Более трех участков</li>
+              <li>Статистика посещений</li>
+              <li>Работа с поселками</li>
+            </ul>
+            <div class="pricing-footer">
+              <%= link_to "Купить", get_pro_url, class: "btn btn-default btn-lg", method: "POST" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="db-wrapper">
+          <div class="db-pricing-seven">
+            <ul>
+              <li class="price"><i class="fas fa-trophy"></i>Второй - 79$/месяц
+              </li>
+              <li>Первые места в рейтинге</li>
+              <li>Более трех участков</li>
+              <li>Статистика посещений</li>
+              <li>Работа с поселками</li>
+            </ul>
+            <div class="pricing-footer">
+              <a href="#" class="btn btn-default btn-lg">Купить</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="db-wrapper">
+          <div class="db-pricing-seven">
+            <ul>
+              <li class="price"><i class="fas fa-trophy"></i>Лучший - 119$/месяц
+              </li>
+              <li>Первые места в рейтинге</li>
+              <li>Более трех участков</li>
+              <li>Статистика посещений</li>
+              <li>Работа с поселками</li>
+            </ul>
+            <div class="pricing-footer">
+              <a href="#" class="btn btn-default btn-lg">Купить</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

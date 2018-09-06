@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   after_initialize :default_values
 
+  enum pro: [ :nil, :light, :medium, :heavy ]
   enum status: [ :user, :admin, :agent, :owner, :manager, :blogger, :markup ]
   has_attached_file :avatar
   has_many :products, dependent: :destroy
@@ -16,5 +17,6 @@ class User < ApplicationRecord
   def default_values
     self.confirmed ||= false
     self.status ||= :user
+    self.pro ||= :nil
   end
 end

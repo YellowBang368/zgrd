@@ -12,7 +12,9 @@
     <button class="write-to-button">Написать сообщение</button>
   </div>
   <div class="author">
-    <h4 class="honest">PRO</h4>
+    <% if @user.pro != "nill" %>
+      <h4 class="honest">PRO</h4>
+    <% end %>
     <p>ID <%= show_id(@user.id) %></p>
   </div>
 </section>

@@ -19,6 +19,7 @@ $(document).on('turbolinks:load', function() { // I wrapped all scripts in this 
   });
 
   $(document).ready(function(){
+
     $(".post-products-row").hide()
 
     $(".choose-products-view .open-products-column").click(function(){
