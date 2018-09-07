@@ -6,8 +6,7 @@
     <div class="address">
       <a href="#">Москва</a>,
       <a href="#">ТАО (Троицкий)</a>,
-      <a href="#">Первомайское поселение</a>,
-      <a href="#">Клоково деревня</a>
+      <%= link_to "#{@product.estate.title}", @product.estate %>,
       <a id="on-map" href="#">На карте</a>
     </div>
     <ul class="highways">

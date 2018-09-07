@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete "remove_favorite", to: "users#remove_favorite"
   resources :comments, except: [:index, :show]
   resources :products
+  resources :estates
   resources :users
 
 

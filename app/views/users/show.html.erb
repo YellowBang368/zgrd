@@ -16,7 +16,12 @@
                 </ul>
                 <% if current_user.present? && current_user == @user %>
                    <%= button_to new_product_path, class: "add-new-product", method: :get do %>
-                    Добавить<i class="fas fa-plus"></i>
+                    Добавить участок<i class="fas fa-plus"></i>
+                   <% end %>
+                   <% if current_user.pro != "nil" %>
+                     <%= button_to new_estate_path, class: "add-new-product", method: :get do %>
+                      Добавить поселок<i class="fas fa-plus"></i>
+                     <% end %>
                    <% end %>
                 <% end %>
               <% end %>

@@ -1,0 +1,17 @@
+<div class="devise-form">
+  <h2>Новый поселок</h2>
+
+  <%= form_for @estate do |f| %>
+
+  <p>Название</p>
+  <%= f.text_field :title %><br/>
+
+  <%= f.fields_for :product_attachments do |p| %>
+    <div class="field">
+      <%= p.file_field :gallery, :multiple => true, name: "product_attachments[gallery][]" %>
+    </div>
+  <% end %>
+
+  <%= f.submit %>
+  <% end %>
+</div>
