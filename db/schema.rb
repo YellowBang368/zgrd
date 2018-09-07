@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180904191737) do
+ActiveRecord::Schema.define(version: 20180906184833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(version: 20180904191737) do
     t.integer "recipient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "estates", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.bigint "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.index ["user_id"], name: "index_estates_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -66,6 +78,8 @@ ActiveRecord::Schema.define(version: 20180904191737) do
     t.boolean "gas"
     t.boolean "electricity"
     t.boolean "sewerage"
+    t.bigint "estate_id"
+    t.index ["estate_id"], name: "index_products_on_estate_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -98,5 +112,7 @@ ActiveRecord::Schema.define(version: 20180904191737) do
   end
 
   add_foreign_key "comments", "users"
+  add_foreign_key "estates", "users"
+  add_foreign_key "products", "estates"
   add_foreign_key "products", "users"
 end
