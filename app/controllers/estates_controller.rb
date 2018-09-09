@@ -25,6 +25,9 @@ class EstatesController < ApplicationController
 
   def show
     @estate = Estate.find(params[:id])
+    @user = @estate.user
+    @attachment = @estate.product_attachments.all
+    @products = @estate.products
   end
 
   def destroy

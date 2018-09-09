@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180907081110) do
+ActiveRecord::Schema.define(version: 20180907122054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,10 @@ ActiveRecord::Schema.define(version: 20180907081110) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "description"
+    t.text "facilities", default: [], array: true
+    t.string "year"
+    t.string "estate_class"
     t.index ["user_id"], name: "index_estates_on_user_id"
   end
 

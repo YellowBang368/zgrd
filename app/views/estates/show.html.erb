@@ -1,1 +1,43 @@
-<%= @estate.title %>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB -->
+  <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".nav-items span").hide();
+      $(".nav-bar .dp-background").hide();
+      $(".nav-bar .dp-menu").hide();
+
+      $(".show-phone").hide();
+        $(".show-phone-button").click(function(){
+          $(this).hide();
+          $(this).closest("section").find(".show-phone").show();
+        });
+      });
+
+  </script>
+
+</head>
+<body>
+  <div class="show-product show-estate">
+    <main class="show-card">
+      <div class="card-top">
+        <%= render partial: "card-top" %>
+      </div>
+      <div class="card-center">
+        <%= render partial: "card-center" %>
+      </div>
+      <div class="card-aside">
+        <%= render partial: "card-aside" %>
+      </div>
+      <div class="card-footer">
+        <%= render partial: "card-footer" %>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

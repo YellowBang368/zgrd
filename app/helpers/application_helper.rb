@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   prefix = ""
-  prefix = "#{number} " if with_number # число с пробеллом, если wit_number правда
+  prefix = "#{number} " if with_number # число с пробеллом, если with_number правда
   ostatok = number % 10 # склонение определяется последней цифрой в числе
   ostatok100 = number % 100
   if (ostatok100 >= 11 && ostatok100 <= 14)  # исключение для цифр от 11 до 14
