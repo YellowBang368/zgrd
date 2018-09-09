@@ -6,7 +6,11 @@
     <div class="address">
       <a href="#">Москва</a>,
       <a href="#">ТАО (Троицкий)</a>,
-      <%= link_to "#{@product.estate.title}", @product.estate %>,
+      <% if @product.estate.present? %>
+        <%= link_to "#{@product.estate.title}", @product.estate %>,
+      <% else %>
+        <%= "Название поселка" %>
+      <% end %>
       <a id="on-map" href="#">На карте</a>
     </div>
     <ul class="highways">
