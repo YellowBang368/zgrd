@@ -1,5 +1,7 @@
 $(document).on('turbolinks:load', function() { // I wrapped all scripts in this listener to reload it after render new page
   $(document).ready(function() {
+    $(".post-comments").hide();
+
 		$('.open-dialog').click( function(event){
 			event.preventDefault();
 			$('#overlay').fadeIn(400,

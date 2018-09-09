@@ -8,6 +8,7 @@ class EstatesController < ApplicationController
     redirect_back fallback_location: root_path if current_user.pro == "nil"
     @estate = Estate.new
     @estate_attachment = @estate.product_attachments.build
+    @products = current_user.products
   end
 
   def create
@@ -35,7 +36,7 @@ class EstatesController < ApplicationController
 
   private
   def estate_params
-    params.require(:estate).permit(:title, :products)
+    params.require(:estate).permit(:title, :products, :estate_class, :product_attachments, :facilities, :description)
   end
 
 end

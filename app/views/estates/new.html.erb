@@ -1,4 +1,4 @@
-<div class="devise-form">
+<div class="devise-form new-estate">
   <h2>Новый поселок</h2>
 
   <%= form_for @estate do |f| %>
@@ -6,11 +6,27 @@
   <p>Название</p>
   <%= f.text_field :title %><br/>
 
+  <p>Описание</p>
+  <%= f.text_field :description %><br/>
+
+  <p>Класс</p>
+  <%= f.text_field :estate_class %><br/>
+
+  <p>Инфраструктура</p>
+  <%= f.text_field :facilities, multiple: true %><br/>
+
   <%= f.fields_for :product_attachments do |p| %>
     <div class="field">
       <%= p.file_field :gallery, :multiple => true, name: "product_attachments[gallery][]" %>
     </div>
   <% end %>
+
+  <p>Участки</p>
+  <div class="post-products-default post-products-column">
+    <%= render partial: "products/post-products-column", :locals => {:show_products => @products} %>
+  </div>
+
+  <%= @products.last.name %>
 
   <%= f.submit %>
   <% end %>

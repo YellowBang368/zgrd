@@ -10,11 +10,13 @@
     <ul class="highways">
       <li class="highway"><i class="fas fa-car-alt"></i><a href="#">Киевское шоссе</a>, <span>25 км от МКАД</span></li>
     </ul>
+
     <div class="fotorama" data-nav="thumbs">
       <% @attachment.each do |attachment| %>
         <%= image_tag attachment.gallery.url %>
       <% end %>
     </div>
+
     <div class="description">
       <div class="estate-main-info">
         <h4 class="title">Поселок — <%= @estate.title %></h4>
