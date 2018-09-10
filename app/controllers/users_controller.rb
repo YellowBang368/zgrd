@@ -10,6 +10,12 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def update_status
+    current_user.status = params[:status]
+    current_user.save
+    redirect_to current_user
+  end
+
   def favorite
     redirect_back fallback_location: root_path unless user_signed_in?
   end

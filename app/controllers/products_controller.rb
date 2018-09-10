@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-
   def index
+    @session = Product.new
     @products = Product.all
     @index_products = []
     @products.each do |pr|
@@ -46,5 +46,10 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :description, :price, :avatar, :square, :gas, :electricity, :sewerage, :product_attachments)
   end
+
+  def form_1_submit
+    session[:value] = params[:value]
+    redirect_to form_2
+ end
 
 end

@@ -13,7 +13,7 @@
   z-index: 4;
 }
 
-#modal_form {
+.modal_form {
   width: 750px;
 	height: 450px;
 	border-radius: 5px;
@@ -29,22 +29,27 @@
 	z-index: 5; /* oкнo дoлжнo быть нaибoлее бoльшем слoе */
 }
 
-#modal_form .head {
+.modal_form.modal-form-country {
+  width: 300px;
+  margin-left: -150px;
+}
+
+.modal_form .head {
 	line-height: 50px;
 	height: 50px;
 	border-bottom: 1px solid #dddddd;
 }
 
-#modal_form .head p {
+.modal_form .head p {
 	color: #bababa;
   text-align: center;
 }
 
-#modal_form p {
+.modal_form p {
 	color: #383838!important;
 }
 
-#modal_form #modal_close {
+.modal_form #modal_close {
 	color: #ffffff;
 	width: 21px;
 	height: 21px;

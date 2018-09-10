@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   root "products#index"
 
   post "get_pro", to: "users#get_pro"
+  post "update_status", to: "users#update_status"
   get "favorite", to: "users#favorite"
-  post "add_favorite", to: "users#add_favorite"
-  delete "remove_favorite", to: "users#remove_favorite"
   resources :comments, except: [:index, :show]
   resources :products
   resources :estates

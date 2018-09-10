@@ -18,7 +18,7 @@
                    <%= button_to new_product_path, class: "add-new-product", method: :get do %>
                     Добавить участок<i class="fas fa-plus"></i>
                    <% end %>
-                   <% if current_user.pro != "nil" %>
+                   <% if current_user.status == "developer" %>
                      <%= button_to new_estate_path, class: "add-new-product", method: :get do %>
                       Добавить поселок<i class="fas fa-plus"></i>
                      <% end %>
@@ -85,7 +85,10 @@
           <button class="btn btn-red btn-sticky-top">Пожаловаться</button>
         <% end %>
         <div class="user-block buy-pro">
-          <button class="add-new-product open-dialog">Оформить подписку PRO</button>
+          <button class="add-new-product open-dialog-pro">Оформить подписку PRO</button>
+        </div>
+        <div class="user-block buy-pro">
+          <button class="add-new-product open-dialog-status">Изменить статус</button>
         </div>
       </div>
     </div>
@@ -93,7 +96,7 @@
 </div>
 
 <div id="overlay"></div>
-<div id="modal_form">
+<div class="modal_form modal-form-pro">
   <div class="head">
     <p>Выберите тарифный план</p>
   </div>
@@ -146,6 +149,67 @@
             </ul>
             <div class="pricing-footer">
               <a href="#" class="btn btn-default btn-lg">Купить</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal_form modal-form-status">
+  <div class="head">
+    <p>Выберите тип аккаунта</p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="db-wrapper">
+          <div class="db-pricing-seven">
+            <ul>
+              <li class="price"><i class="fas fa-trophy"></i>Пользователь
+              </li>
+              <li>Первые места в рейтинге</li>
+              <li>Более трех участков</li>
+              <li>Статистика посещений</li>
+              <li>Работа с поселками</li>
+            </ul>
+            <div class="pricing-footer">
+              <%= link_to "Купить", update_status_url(status: "user"), class: "btn btn-default btn-lg", method: "POST" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="db-wrapper">
+          <div class="db-pricing-seven">
+            <ul>
+              <li class="price"><i class="fas fa-trophy"></i>Агент
+              </li>
+              <li>Первые места в рейтинге</li>
+              <li>Более трех участков</li>
+              <li>Статистика посещений</li>
+              <li>Работа с поселками</li>
+            </ul>
+            <div class="pricing-footer">
+              <%= link_to "Купить", update_status_url(status: "agent"), class: "btn btn-default btn-lg", method: "POST" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="db-wrapper">
+          <div class="db-pricing-seven">
+            <ul>
+              <li class="price"><i class="fas fa-trophy"></i>Застройщик
+              </li>
+              <li>Первые места в рейтинге</li>
+              <li>Более трех участков</li>
+              <li>Статистика посещений</li>
+              <li>Работа с поселками</li>
+            </ul>
+            <div class="pricing-footer">
+              <%= link_to "Купить", update_status_url(status: "developer"), class: "btn btn-default btn-lg", method: "POST" %>
             </div>
           </div>
         </div>

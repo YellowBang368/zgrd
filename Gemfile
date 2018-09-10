@@ -23,6 +23,8 @@ gem 'geoip'
 gem 'carrierwave'
 gem 'sypex_geo'
 gem 'mini_magick'
+gem 'country_select'
+
 
 
 group :development, :test do

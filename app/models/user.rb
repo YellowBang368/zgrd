@@ -2,7 +2,7 @@ class User < ApplicationRecord
   after_initialize :default_values
 
   enum pro: [ :nil, :light, :medium, :heavy ]
-  enum status: [ :user, :admin, :agent, :owner, :manager, :blogger, :markup ]
+  enum status: [ :user, :admin, :agent, :developer ]
   has_attached_file :avatar
   has_many :products, dependent: :destroy
   has_many :estates, dependent: :destroy

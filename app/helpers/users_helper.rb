@@ -22,15 +22,9 @@ module UsersHelper
     when "admin"
       "Администрация"
     when "agent"
-      "Агент по недвижимости"
-    when "manager"
-      "Менеджер по недвижимости"
-    when "owner"
-      "Владелец"
-    when "blogger"
-      "Блоггер"
-    when "markup"
-      "Разметчик"
+      "Агент"
+    when "developer"
+      "Застройщик"
     end
   end
 end

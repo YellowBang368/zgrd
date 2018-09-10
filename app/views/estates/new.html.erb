@@ -22,11 +22,9 @@
   <% end %>
 
   <p>Участки</p>
-  <div class="post-products-default post-products-column">
-    <%= render partial: "products/post-products-column", :locals => {:show_products => @products} %>
-  </div>
-
-  <%= @products.last.name %>
+  <% f.collection_check_boxes(:product_ids, @products, :id, :name) do |b| %>
+    <%= b.label { b.check_box } %></br>
+  <% end %>
 
   <%= f.submit %>
   <% end %>

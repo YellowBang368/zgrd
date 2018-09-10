@@ -49,7 +49,7 @@
             </div>
             <div class="col" style="padding-left: 2px;">
               <ul class="header-menu vertical-align-text">
-                <li><a class="vertical-align-text" href="#"><i class="fab fa-telegram-plane"></i>  <%= puts_location(request.remote_ip) %></a></li>
+                <li><a class="vertical-align-text open-dialog-country" href="#"><i class="fab fa-telegram-plane"></i>  <%= puts_location(request.remote_ip) %></a></li>
                 <li><a class="vertical-align-text" href="/favorite"><i class="fas fa-heart"></i>Отложенные</a></li>
                 <li><a class="vertical-align-text" href="#"><i class="fas fa-list-ul"></i>Сравнение</a></li>
                 <% if current_user.present? %>
@@ -77,7 +77,7 @@
         <li class="dp-trigger" data-index="second"><span class="dp-triangle"></span><a href="#">Акции</a></li>
         <li class="dp-trigger" data-index="third"><span class="dp-triangle"></span><a href="#">Участки</a></li>
         <li class="dp-trigger" data-index="fourth"><span class="dp-triangle"></span><a href="#">Участки с домами </a></li>
-        <li class="dp-trigger" data-index="fifth"><span class="dp-triangle"></span><a href="#">Проекты</a></li>
+        <li class="dp-trigger" data-index="fifth"><span class="dp-triangle"></span><a href="#">Поселки</a></li>
         <li class="dp-trigger" data-index="sixth"><span class="dp-triangle"></span><a href="#">Виллы</a></li>
         <li class="dp-trigger" data-index="seventh"><span class="dp-triangle"></span><a href="#">Земли</a></li>
         <li class="dp-trigger" data-index="eighth"><span class="dp-triangle"></span><a href="#">Инвестпроекты</a></li>
@@ -111,6 +111,11 @@
         <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Коттеджные поселки</p></a></li>
         <li><a href="#"><i class="far fa-bell"></i><p>Дачные поселки</p></a></li>
         <li><a href="#"><i class="fas fa-desktop"></i><p>Таунхаусы</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Поселки в лесу</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Поселки у большой воды</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>VIP</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Эко  вилла</p></a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i><p>Проекты поселков</p></a></li>
       </ul>
       <ul class="dp-ul" data-index="sixth">
         <li><a href="#"><i class="fas fa-headphones-alt"></i><p>Статусные</p></a></li>
@@ -144,5 +149,6 @@
   <%= yield %>
 
   <%= render partial: "layouts/footer"%>
+  <%= render partial: "layouts/modal-form-country"%>
 </body>
 </html>

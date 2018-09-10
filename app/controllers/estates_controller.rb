@@ -5,7 +5,7 @@ class EstatesController < ApplicationController
 
   def new
     redirect_back fallback_location: root_path unless user_signed_in? # "fallback_location" redirect to root if no previous page
-    redirect_back fallback_location: root_path if current_user.pro == "nil"
+    redirect_back fallback_location: root_path unless current_user.status == "developer"
     @estate = Estate.new
     @estate_attachment = @estate.product_attachments.build
     @products = current_user.products
