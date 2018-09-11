@@ -5,6 +5,38 @@ module ApplicationHelper
     geoip.country("#{ip}").country_name
   end
 
+  def show_date(date)
+    date = date.strftime("%d %m %Y")
+    date = date.split(" ")
+    case date[1]
+    when "01"
+      date[1] = "Января"
+    when "02"
+      date[1] = "Февраля"
+    when "03"
+      date[1] = "Марта"
+    when "04"
+      date[1] = "Апреля"
+    when "05"
+      date[1] = "Мая"
+    when "06"
+      date[1] = "Июня"
+    when "07"
+      date[1] = "Июля"
+    when "08"
+      date[1] = "Августа"
+    when "09"
+      date[1] = "Сентября"
+    when "10"
+      date[1] = "Октября"
+    when "11"
+      date[1] = "Ноября"
+    when "12"
+      date[1] = "Декабря"
+    end
+    date.join(" ")
+  end
+
   def sklonenie(number, krokodil, krokodila, krokodilov, with_number = false)
   if (number == nil || !number.is_a?(Numeric))
     number = 0 # если первый параметр пустой или не число, то по умолчанию 0

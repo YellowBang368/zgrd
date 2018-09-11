@@ -1,6 +1,7 @@
 var ready;
 
 ready = function() {
+
   /* Выбор представления ленты участков */
   $(".post-products-row").hide()
   $(".choose-products-view .open-products-column").click(function(){

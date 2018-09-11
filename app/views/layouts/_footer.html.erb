@@ -1,3 +1,6 @@
+<script>
+  $('[data-toggle="tooltip"]').tooltip();
+</script>
 <div id="put-email" class="vertical-text-align">
   <%= image_tag "envelope.svg"  %>
   <p>Узнавайте о выгодных предложениях и получайте личные рекомендации</p>
@@ -7,30 +10,47 @@
 <footer>
   <div class="container">
     <div class="row">
-      <div class="col-sm-2 col-xs-1" style="margin-left: 10%; margin-right: 3%;">
-        <h5>Покупателям</h5>
+      <div class="col-sm-2 col-xs-1">
         <ul>
-          <li><a href="#">5 новых участков</a></li>
-          <li><a href="#">5 супер предложений</a></li>
-          <li><a href="#">Второе меню</a></li>
-          <li><a href="#">Форма связи</a></li>
-          <li><a href="#">Контакты</a></li>
+          <li><a href="#">Спец. предложения</a></li>
+          <li><a href="#">Акции</a></li>
+          <li><a href="#">Поселки</a></li>
+          <li><a href="#">Новости</a></li>
+          <li><a href="#">Форум</a></li>
+          <li><a href="#">Блог</a></li>
+          <li><a href="#">Дать рекламу</a></li>
+          <li><a href="#">Тех. поддержка</a></li>
         </ul>
       </div>
-      <div class="col-sm-3 col-xs-1">
-        <h5>Продавцам</h5>
-        <ul>
-          <li><a href="#">Техническая поддержка</a></li>
-          <li><a href="#">Другие наши проекты</a></li>
-          <li><a href="#">Изречение о земле</a></li>
-          <li><a href="#">Дата</a></li>
-          <li><a href="#">Копирайты</a></li>
-          <li><a href="#">Социальные сети</a></li>
-        </ul>
+      <div class="col-sm-8 col-xs-1">
+        <div class="fotorama" id="footer-slider" data-autoplay="true">
+           <a href="#"><img src="http://placehold.it/730x224" data-caption="One" ></a>
+           <a href="#"><img src="http://placehold.it/730x224" data-caption="Two"></a>
+        </div>
       </div>
-      <div class="col-sm-6 col-xs-1">
-
+      <div class="col-sm-2 col-xs-1">
+        <div class="buttons">
+          <% if user_signed_in? %>
+            <button class="peter-river-flat-button">Мои объявления</button>
+          <% else %>
+            <button class="silver-flat-button" data-toggle="tooltip" title="Нужно авторизоваться">Мои объявления</button>
+          <% end %>
+          <button class="peter-river-flat-button">Подать объявление</button>
+        </div>
       </div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="lower-footer" style="background: #f4f4f4">
+      <ul class="menu">
+        <li><%= show_date(Time.now) %></li>
+      </ul>
+      <ul class="social-networks">
+        <li><%= image_tag "google-plus.svg" %></li>
+        <li><%= image_tag "facebook.svg" %></li>
+        <li><%= image_tag "youtube.svg" %></li>
+        <li><%= image_tag "vk.svg" %></li>
+      </ul>
     </div>
   </div>
 </footer>
