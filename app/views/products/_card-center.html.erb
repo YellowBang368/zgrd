@@ -2,7 +2,14 @@
 
 <div class="bg-block">
   <section class="main">
-    <h1><%= @product.name %></h1>
+    <div class="product-heading">
+      <h1><%= @product.name %></h1>
+      <% if user_signed_in? && current_user == @product.user %>
+        <%= button_to edit_product_path(@product), class: "edit-button vertical-align-text", method: :get do %>
+          <i class="fas fa-pencil-alt"></i>Редактировать
+        <% end %>
+      <% end %>
+    </div>
     <div class="address">
       <a href="#">Москва</a>,
       <a href="#">ТАО (Троицкий)</a>,

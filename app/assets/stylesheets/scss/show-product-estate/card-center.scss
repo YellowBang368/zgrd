@@ -6,16 +6,41 @@
   min-height: 100px;
 }
 
-.card-center .main {
-  padding: 0 24px;
+.card-center .product-heading {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0 7px 0;
   h1 {
-    margin: 24px 0 9px;
+    margin: 0;
     font-size: 28px;
     font-weight: 700;
     line-height: 34px;
     text-align: left;
     color: #121212;
+    margin-right: 15px;
   }
+  .edit-button {
+    display: block;
+    color: #2b87db;
+    background-color: rgba(43,135,219,.1);
+    -webkit-transition: .15s border, .15s background-color, .15s color;
+    transition: .15s border, .15s background-color, .15s color;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 48px;
+    cursor: pointer;
+    border: 0;
+    box-shadow: none;
+    padding: 5px 16px 5px 16px;
+    font-weight: 600;
+    font-size: 12px;
+    i {
+      margin-right: 7px;
+    }
+  }
+}
+
+.card-center .main {
+  padding: 0 24px;
   a {
     font-size: 16px;
     font-style: normal;

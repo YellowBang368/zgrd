@@ -1,22 +1,3 @@
-<style>
-  .bx-wrapper {
-    height: 500px;
-    margin: 0;
-    padding: 0;
-  }
-  .bx-viewport {
-    height: 100%!important;
-  }
-  .slider {
-    width: 100%;
-    height: 800px;
-  }
-  .slider img {
-    width: 100%;
-    height: 100%;
-  }
-</style>
-
 <div class="container">
   <section class="cards">
     <% show_products.each_with_index do |pr, index| %>
@@ -32,7 +13,12 @@
             <% if pr.hot %>
               <i class="fas fa-fire"></i>
             <% end %>
-            <% if current_user.present? && current_user.favorite != nil && current_user.favorite.include?(pr.id) %>
+            <% if user_signed_in? && current_user == pr.user %>
+              <%= button_to edit_product_path(pr), class: "edit-product", method: :get do %>
+                <i class="fas fa-pencil-alt"></i>
+              <% end %>
+            <% end %>
+            <% if user_signed_in? && current_user.favorite != nil && current_user.favorite.include?(pr.id) %>
               <i class="fas fa-heart"></i>
             <% else %>
               <i class="fas fa-heart transparent"></i>

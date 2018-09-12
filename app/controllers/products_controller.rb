@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.user = current_user
     if @product.save!
-      redirect_to current_user
+      redirect_to @product
       params[:product_attachments]["gallery"].each do |a|
         @product_attachment = @product.product_attachments.create!(:gallery => a)
       end
@@ -40,6 +40,21 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+    redirect_back fallback_location: root_path unless current_user == @product.user
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+    if @product.save
+      redirect_to @product
+    else
+      render "edit"
+    end
   end
 
   private
