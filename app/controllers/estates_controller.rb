@@ -13,6 +13,10 @@ class EstatesController < ApplicationController
 
   def create
     @estate = Estate.new(estate_params)
+    estate_params[:product_ids].each do |id|
+      next if id == ""
+      @estate.products << Product.find(id)
+    end
     @estate.user = current_user
     if @estate.save!
       redirect_to current_user
@@ -31,12 +35,16 @@ class EstatesController < ApplicationController
     @products = @estate.products
   end
 
+  def show_products
+    @products = Estate.find(params[:id]).products
+  end
+
   def destroy
   end
 
   private
   def estate_params
-    params.require(:estate).permit(:title, :products, :estate_class, :product_attachments, :facilities, :description)
+    params.require(:estate).permit(:title, :products, :estate_class, :product_attachments, :description, :product_ids => [])
   end
 
 end

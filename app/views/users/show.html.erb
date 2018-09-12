@@ -59,12 +59,8 @@
         <div class="upside-menu">
 
         </div>
-        <% if current_user.present? %>
-          <% if current_user == @user %>
-            <button class="btn btn-green btn-sticky-bottom no-margin"><i class="fas fa-pencil-alt"></i>Редактировать</button>
-          <% else %>
-            <button class="btn btn-green btn-sticky-bottom no-margin">Написать</button>
-          <% end %>
+        <% if user_signed_in? && @user != current_user %>
+          <button class="btn btn-green btn-sticky-bottom no-margin">Написать</button>
         <% end %>
         <div class="user-block">
           <%= image_tag puts_avatar(@user) %>

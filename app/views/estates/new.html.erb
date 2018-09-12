@@ -21,11 +21,9 @@
     </div>
   <% end %>
 
-  <p>Участки</p>
-  <% f.collection_check_boxes(:product_ids, @products, :id, :name) do |b| %>
-    <%= b.label { b.check_box } %></br>
-  <% end %>
-
+  <p>Выберите участки</p>
+  <%= f.collection_check_boxes(:product_ids, current_user.products, :id, :name) %>
+  </br>
   <%= f.submit %>
   <% end %>
 </div>
