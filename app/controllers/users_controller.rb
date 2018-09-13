@@ -20,12 +20,12 @@ class UsersController < ApplicationController
   end
 
   def add_to_favorite
-    current_user.favorite_ids << params[:product_id] unless current_user.favorite_ids.include?(params[:product_id])
+    current_user.favorite_ids << params["product_id"] unless current_user.favorite_ids.include?(params["product_id"])
     current_user.save!
   end
 
   def remove_from_favorite
-    current_user.favorite_ids.delete(params[:product_id]) if current_user.favorite_ids.include?(params[:product_id])
+    current_user.favorite_ids.delete(params["product_id"]) if current_user.favorite_ids.include?(params["product_id"])
     current_user.save!
   end
 end
