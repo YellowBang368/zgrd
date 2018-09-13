@@ -24,6 +24,7 @@ gem 'carrierwave'
 gem 'sypex_geo'
 gem 'mini_magick'
 gem 'country_select'
+gem 'chartkick', '~> 3.0', '>= 3.0.1'
 
 
 

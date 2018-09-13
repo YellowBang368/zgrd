@@ -26,7 +26,7 @@ $nav-bar: #F2F2F2;
 }
 
 
-.main-products, .favorite, .profile {
+.post-products-default {
   .fa-fire {
     font-size: 1em;
     color: #FF6F29;
@@ -35,6 +35,10 @@ $nav-bar: #F2F2F2;
     float: right;
     font-size: 1em;
     color: #FE4365;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
   }
   .transparent {
     opacity: 0.2;

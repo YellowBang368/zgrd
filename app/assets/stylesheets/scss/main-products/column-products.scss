@@ -59,6 +59,19 @@ $nav-bar: #F2F2F2;
   }
 }
 
+.post-products-column {
+  .button_to {
+    display: inline-flex;
+  }
+  .edit-product {
+    cursor: pointer;
+    background: #fafafa;
+    text-decoration: none;
+    color: #aaa;
+    border: 0;
+  }
+}
+
 @media (max-width: 991px) {
   .post-products-column .card {
     img {

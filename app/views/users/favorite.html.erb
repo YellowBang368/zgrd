@@ -19,10 +19,10 @@
     <li class="open-products-row"><i class="fas fa-th-large"></i></li>
   </ul>
 
-  <div class="post-products-column">
-    <%= render partial: "products/post-products-column", :locals => {:show_products => Product.find(current_user.favorite)} %>
+  <div class="post-products-default post-products-column">
+    <%= render partial: "products/post-products-column", :locals => {:show_products => Product.find(current_user.favorite_ids)} %>
   </div>
-  <div class="post-products-row">
-    <%= render partial: "products/post-products-row", :locals => {:show_products => Product.find(current_user.favorite)} %>
+  <div class="post-products-default post-products-row">
+    <%= render partial: "products/post-products-row", :locals => {:show_products => Product.find(current_user.favorite_ids)} %>
   </div>
 </div>

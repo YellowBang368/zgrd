@@ -29,10 +29,10 @@
             </div>
 
             <% if @user.products.count > 0 %>
-              <div class="post-products-column">
+              <div class="post-products-default post-products-column">
                 <%= render partial: "products/post-products-column", :locals => {:show_products => @user.products} %>
               </div>
-              <div class="post-products-row">
+              <div class="post-products-default post-products-row">
                 <%= render partial: "products/post-products-row", :locals => {:show_products => @user.products} %>
               </div>
             <% else %>
@@ -75,17 +75,13 @@
           <ul class="user-menu">
             <li class="open-user-products"><p>Объявления</p></li>
             <li class="open-user-comments"><p>Отзывы</p></li>
+            <li class="open-dialog-status"><p>Изменить статус</p></li>
+            <li class="open-dialog-pro"><p>Подписка pro</p></li>
           </ul>
         </div>
         <% if current_user.present? && current_user.id != @user.id %>
           <button class="btn btn-red btn-sticky-top">Пожаловаться</button>
         <% end %>
-        <div class="user-block buy-pro">
-          <button class="add-new-product open-dialog-pro">Оформить подписку PRO</button>
-        </div>
-        <div class="user-block buy-pro">
-          <button class="add-new-product open-dialog-status">Изменить статус</button>
-        </div>
       </div>
     </div>
   </div>

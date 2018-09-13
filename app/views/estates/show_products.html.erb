@@ -1,5 +1,14 @@
-<div class="post-products-default post-products-column post-user-products">
-  <div class="post-products-column">
+<ul class="container choose-products-view">
+  <li class="open-products-column"><i class="fas fa-align-justify"></i></li>
+  <li class="open-products-row"><i class="fas fa-th-large"></i></li>
+</ul>
+
+
+<div class="margin-top">
+  <div class="post-products-default post-products-column post-user-products">
     <%= render partial: "products/post-products-column", :locals => {:show_products => @products} %>
+  </div>
+  <div class="post-products-default post-products-row">
+    <%= render partial: "products/post-products-row", :locals => {:show_products => @products} %>
   </div>
 </div>

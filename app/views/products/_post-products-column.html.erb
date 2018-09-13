@@ -18,10 +18,14 @@
                 <i class="fas fa-pencil-alt"></i>
               <% end %>
             <% end %>
-            <% if user_signed_in? && current_user.favorite != nil && current_user.favorite.include?(pr.id) %>
-              <i class="fas fa-heart"></i>
-            <% else %>
+            <% if user_signed_in? && current_user.favorite_ids != nil && current_user.favorite_ids.include?("#{pr.id}") %>
+              <%= link_to unfavorite_path(:product_id => pr), method: "POST" do %>
+                <i class="fas fa-heart"></i>
+              <% end %>
+            <% elsif user_signed_in? %>
+              <%= link_to favorite_path(:product_id => pr), method: "POST" do %>
               <i class="fas fa-heart transparent"></i>
+              <% end %>
             <% end %>
           </h5>
           <p class="text"><%= pr.description[0..420] + "..." %></p>

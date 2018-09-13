@@ -50,7 +50,7 @@
             <div class="col" style="padding-left: 2px;">
               <ul class="header-menu vertical-align-text">
                 <li><a class="vertical-align-text open-dialog-country" href="#"><i class="fab fa-telegram-plane"></i>  <%= puts_location(request.remote_ip) %></a></li>
-                <li><a class="vertical-align-text" href="/favorite"><i class="fas fa-heart"></i>Отложенные</a></li>
+                <li><a class="vertical-align-text" href="/favorite_products"><i class="fas fa-heart"></i>Отложенные</a></li>
                 <li><a class="vertical-align-text" href="#"><i class="fas fa-list-ul"></i>Сравнение</a></li>
                 <% if current_user.present? %>
                   <% if current_page?(current_user) %>
