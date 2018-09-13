@@ -49,6 +49,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    @product.price_history["#{@product.updated_at}"] = @product.price 
     @product.update(product_params)
     if @product.save
       redirect_to @product

@@ -35,6 +35,7 @@
           </ul>
         </div>
       </article>
+      <%= render partial: "products/price-difference", :locals => {:product => pr} if defined?(show_price_difference) && show_price_difference == true %>
       <% end %>
     </section>
 </div>

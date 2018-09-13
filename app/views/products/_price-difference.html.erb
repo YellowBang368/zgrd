@@ -1,0 +1,8 @@
+<% data = [] %>
+<% unless product.price_history.blank? %>
+  <% product.price_history.map { |date, price| data << [date, price] } %>
+  <% data << [product.updated_at, product.price] %>
+<% end %>
+
+
+<%= line_chart data, messages: {empty: "Цена не менялась, #{product.price}$"} %>

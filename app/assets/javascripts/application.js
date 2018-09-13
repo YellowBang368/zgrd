@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require rails-ujs
+//= require highcharts.js
+//= require chartkick
 //= require_tree .
 
 //= require_tree ./js
