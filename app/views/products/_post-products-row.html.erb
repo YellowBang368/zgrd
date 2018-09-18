@@ -6,7 +6,7 @@
         <div class="description">
           <h5><%= pr.name %></h5>
           <p class="text"><%= pr.description %></p>
-          <h3 class="price" ><%= pr.price %>$</h3>
+          <h3 class="price" ><%= show_price(pr.price) %></h3>
         </div>
       </article>
       <% end %>

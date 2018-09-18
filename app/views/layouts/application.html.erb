@@ -62,6 +62,16 @@
                 <% else %>
                   <li><%= link_to 'Войти', new_user_session_path, class: "sign-in-button" %></li>
                 <% end %>
+                <li class="open-currency-menu">
+                  <a class="vertical-align-text" href="#">
+                    <% if session[:currency].present? %>
+                      <%= session[:currency] %>
+                    <% else %>
+                      EUR
+                    <% end %>
+                  </a>
+                  <%= render partial: "layouts/currency-menu" %>
+                </li>
               </ul>
             </div>
           </div>
@@ -147,6 +157,9 @@
   </div>
 
   <%= yield %>
+
+
+  <div id="overlay"></div>
 
   <%= render partial: "layouts/footer"%>
   <%= render partial: "layouts/modal-form-country"%>

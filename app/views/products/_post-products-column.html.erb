@@ -30,7 +30,7 @@
           </h5>
           <p class="text"><%= pr.description[0..420] + "..." %></p>
           <ul class="down-list">
-            <li><h3 class="price" ><%= pr.price %>$</h3></li>
+            <li><h3 class="price" ><%= show_price(pr.price) %></h3></li>
             <li><%= link_to "Подробнее", pr, class: "see-more" %></li>
           </ul>
         </div>

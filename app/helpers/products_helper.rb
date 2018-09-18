@@ -1,7 +1,18 @@
 module ProductsHelper
 
+  def exchange_rate(currency)
+    doc = Nokogiri::HTML(open("https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"))
+    doc.xpath("//cube").each do |str|
+      return str["rate"].to_i if str["currency"] == currency
+    end
+  end
+
   def show_price(price)
-    price.to_s.reverse.gsub(/(.{3})/, '\1 ').reverse
+    if session[:currency] == "EUR" || !session[:currency].present?
+      return "#{price} EUR"
+    else
+      return "#{price*exchange_rate(session[:currency])} #{session[:currency]}"
+    end
   end
 
   def show_id(id)

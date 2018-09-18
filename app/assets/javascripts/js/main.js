@@ -122,6 +122,21 @@ ready = function() {
     );
   });
 
+  $('.open-currency-menu').on('click', function() {
+    if (!$(this).hasClass('clicked')) {
+      $(this).addClass('clicked');
+      $(".currency-menu").css({"opacity":"0", "display":"block", }).animate({opacity:1}, 300);
+    } else {
+      $(this).removeClass('clicked');
+      $(".currency-menu").css({"display":"none"});
+    }
+  });
+
+  $(".currency-menu").mouseleave(function(){
+    $(".currency-menu").css({"display":"none"});
+    $(".open-currency-menu").removeClass("clicked");
+  });
+
 };
 
 $(document).ready(ready);

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "favorite_products", to: "users#favorite"
   post "favorite", to: "users#add_to_favorite"
   post "unfavorite", to: "users#remove_from_favorite"
+  post "change_currency", to: "application#change_currency"
 
   get "/estates/:id/estate_products", to: "estates#show_products"
   resources :comments, except: [:index, :show]

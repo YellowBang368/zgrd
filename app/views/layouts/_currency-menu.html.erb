@@ -1,0 +1,26 @@
+<ul class="currency-menu">
+  <li>
+    <%= link_to change_currency_url(:currency => "EUR"), method: "POST" do %>
+      <%= image_tag asset_path "countrys/european-union.svg" %>
+      <p>EUR</p>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to change_currency_url(:currency => "USD"), method: "POST" do %>
+      <%= image_tag asset_path "countrys/united-states-of-america.svg" %>
+      <p>USD</p>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to change_currency_url(:currency => "RUB"), method: "POST" do %>
+      <%= image_tag asset_path "countrys/russia.svg" %>
+      <p>RUB</p>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to change_currency_url(:currency => "ILS"), method: "POST" do %>
+      <%= image_tag asset_path "countrys/israel.svg" %>
+      <p>ILS</p>
+    <% end %>
+  </li>
+</ul>
