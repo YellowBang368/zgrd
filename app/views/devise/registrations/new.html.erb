@@ -1,5 +1,5 @@
 <div class="devise-form">
-  <h2>Sign up</h2>
+  <h2><%= I18n.t("devise.sign-up") %></h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
@@ -38,7 +38,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up" %>
+      <%= f.submit I18n.t("devise.sign-up") %>
     </div>
   <% end %>
 

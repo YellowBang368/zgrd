@@ -16,11 +16,11 @@
                 </ul>
                 <% if current_user.present? && current_user == @user %>
                    <%= button_to new_product_path, class: "add-new-product", method: :get do %>
-                    Добавить участок<i class="fas fa-plus"></i>
+                    <%= I18n.t("products.add") %><i class="fas fa-plus"></i>
                    <% end %>
                    <% if current_user.status == "developer" %>
                      <%= button_to new_estate_path, class: "add-new-product", method: :get do %>
-                      Добавить поселок<i class="fas fa-plus"></i>
+                      <%= I18n.t("estates.add") %><i class="fas fa-plus"></i>
                      <% end %>
                    <% end %>
                 <% end %>
@@ -38,12 +38,12 @@
             <% else %>
               <div class="vertical-align-text" style="height: calc(100% - 60px);">
                 <% if current_user == @user %>
-                  <h4 class="empty-text">У вас пока нет объявлений</h4>
+                  <h4 class="empty-text"><%= I18n.t("profile.notifications.you-do-not-have-any-ads-yet") %></h4>
                   <%= button_to new_product_path, class: "add-new-product", method: :get do %>
-                    Добавить<i class="fas fa-plus"></i>
+                    <%= I18n.t("products.add") %><i class="fas fa-plus"></i>
                   <% end %>
                 <% else %>
-                  <h4 class="empty-text">У этого пользователя пока нет объявлений</h4>
+                  <h4 class="empty-text"><%= I18n.t("profile.notifications.this-user-does-not-have-any-ads-yet") %></h4>
                 <% end %>
               </div>
             <% end %>
@@ -60,7 +60,7 @@
 
         </div>
         <% if user_signed_in? && @user != current_user %>
-          <button class="btn btn-green btn-sticky-bottom no-margin">Написать</button>
+          <button class="btn btn-green btn-sticky-bottom no-margin"><%= I18n.t("profile.write") %></button>
         <% end %>
         <div class="user-block">
           <%= image_tag puts_avatar(@user) %>
@@ -73,14 +73,14 @@
             <%= image_tag puts_confirmed(@user), class: "confirmed tooltip-hover" %>
           </p>
           <ul class="user-menu">
-            <li class="open-user-products"><p>Объявления</p></li>
-            <li class="open-user-comments"><p>Отзывы</p></li>
-            <li class="open-dialog-status"><p>Изменить статус</p></li>
-            <li class="open-dialog-pro"><p>Подписка pro</p></li>
+            <li class="open-user-products"><p><%= I18n.t("profile.ads") %></p></li>
+            <li class="open-user-comments"><p><%= I18n.t("profile.reviews") %></p></li>
+            <li class="open-dialog-status"><p><%= I18n.t("profile.change-status") %></p></li>
+            <li class="open-dialog-pro"><p><%= I18n.t("profile.upgrade-to-PRO") %></p></li>
           </ul>
         </div>
         <% if current_user.present? && current_user.id != @user.id %>
-          <button class="btn btn-red btn-sticky-top">Пожаловаться</button>
+          <button class="btn btn-red btn-sticky-top"><%= I18n.t("profile.complain") %></button>
         <% end %>
       </div>
     </div>

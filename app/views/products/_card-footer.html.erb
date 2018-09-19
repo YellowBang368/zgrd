@@ -1,16 +1,16 @@
 <div class="rialtors-help">
-  <h4>Помощь надежных риэлторов</h4>
-  <p>Оставьте заявку, и специалисты подберут подходящий дом</p>
-  <button class='take-help-button'>Оставить заявку</button>
+  <h4><%= I18n.t("products.card-footer.rialtors-help") %></h4>
+  <p><%= I18n.t("products.card-footer.leave-a-request-desc") %></p>
+  <button class='take-help-button'><%= I18n.t("products.card-footer.leave-a-request") %></button>
 </div>
 
 <div class="related-products">
-  <h4>Похожие предложения</h4>
+  <h4><%= I18n.t("products.card-footer.similiar-offers") %></h4>
   <ul>
     <% @related_products.each do |pr| %>
       <li>
         <a class="image-link" href="/products/<%= pr.id %>"><%= image_tag pr.avatar.url %></a>
-        <a class="title-link" href="/products/<%= pr.id %>">участок <%= pr.square %> сот.</a>
+        <a class="title-link" href="/products/<%= pr.id %>"><%= I18n.t("products.area") %> <%= pr.square %> <%= I18n.t("products.hundred-metres") %></a>
         <p class="name"><%= pr.name %></p>
         <p class="price"><%= show_price(pr.price) %> $</p>
       </li>
@@ -19,9 +19,9 @@
 </div>
 
 <div class="under-related">
-  <h4>Дополнительные предложения по продаже</h4>
+  <h4><%= I18n.t("products.card-footer.extra-offers") %></h4>
   <ul>
-    <li><a href="#">Земельные участки без посредников</a></li>
-    <li><a href="#">Земельные участки без посредников в районе Затеречный в городе Владикавказ</a></li>
+    <li><a href="#"><%= I18n.t("products.card-footer.without-intermediares") %></a></li>
+    <li><a href="#"><%= I18n.t("products.card-footer.without-intermediares") %> в районе Затеречный в городе Владикавказ</a></li>
   </ul>
 </div>

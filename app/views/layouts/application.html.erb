@@ -31,7 +31,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-2 vertical-align-text">
-          <%= link_to "ZGRD", root_path, class: "logo" %>
+          <%= link_to "MyAcre", root_path, class: "logo" %>
         </div>
         <div class="col">
           <div class="row">
@@ -42,7 +42,7 @@
                     <input class="search_input"></input>
                   </div>
                   <div class="col-sm-3">
-                    <button class="search_button">Найти</button>
+                    <button class="search_button"><%= I18n.t('header.search') %></button>
                   </div>
                 </div>
               </form>
@@ -50,17 +50,17 @@
             <div class="col" style="padding-left: 2px;">
               <ul class="header-menu vertical-align-text">
                 <li><a class="vertical-align-text open-dialog-country" href="#"><i class="fab fa-telegram-plane"></i>  <%= puts_location(request.remote_ip) %></a></li>
-                <li><a class="vertical-align-text" href="/favorite_products"><i class="fas fa-heart"></i>Отложенные</a></li>
-                <li><a class="vertical-align-text" href="#"><i class="fas fa-list-ul"></i>Сравнение</a></li>
+                <li><a class="vertical-align-text" href="/favorite_products"><i class="fas fa-heart"></i><%= I18n.t('header.deferred') %></a></li>
+                <li><a class="vertical-align-text" href="#"><i class="fas fa-list-ul"></i><%= I18n.t('header.comparison') %></a></li>
                 <% if current_user.present? %>
                   <% if current_page?(current_user) %>
-                    <li><%= link_to 'Главная', root_path, class: "sign-in-button" %></li>
+                    <li><%= link_to I18n.t("header.home"), root_path, class: "sign-in-button" %></li>
                   <% else %>
-                    <li><%= link_to 'Личный кабинет', current_user, class: "sign-in-button" %></li>
+                    <li><%= link_to I18n.t("header.profile"), current_user, class: "sign-in-button" %></li>
                   <% end %>
-                  <li><%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: "sign-in-button" %></li>
+                  <li><%= link_to I18n.t("devise.log-out"), destroy_user_session_path, method: :delete, class: "sign-in-button" %></li>
                 <% else %>
-                  <li><%= link_to 'Войти', new_user_session_path, class: "sign-in-button" %></li>
+                  <li><%= link_to I18n.t("devise.log-in"), new_user_session_path, class: "sign-in-button" %></li>
                 <% end %>
                 <li class="open-currency-menu">
                   <a class="vertical-align-text" href="#">
@@ -83,9 +83,9 @@
   <div class="nav-bar">
     <div class="container">
       <ul class="nav-items">
-        <li class="dp-trigger" data-index="first"><span class="dp-triangle"></span><a href="#">Спецпредложения</a></li>
-        <li class="dp-trigger" data-index="second"><span class="dp-triangle"></span><a href="#">Акции</a></li>
-        <li class="dp-trigger" data-index="third"><span class="dp-triangle"></span><a href="#">Участки</a></li>
+        <li class="dp-trigger" data-index="first"><span class="dp-triangle"></span><a href="#"><%= I18n.t('nav-bar.special-offers') %></a></li>
+        <li class="dp-trigger" data-index="second"><span class="dp-triangle"></span><a href="#"><%= I18n.t('nav-bar.actions') %></a></li>
+        <li class="dp-trigger" data-index="third"><span class="dp-triangle"></span><a href="#"><%= I18n.t('nav-bar.areas') %></a></li>
         <li class="dp-trigger" data-index="fourth"><span class="dp-triangle"></span><a href="#">Участки с домами </a></li>
         <li class="dp-trigger" data-index="fifth"><span class="dp-triangle"></span><a href="#">Поселки</a></li>
         <li class="dp-trigger" data-index="sixth"><span class="dp-triangle"></span><a href="#">Виллы</a></li>

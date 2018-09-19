@@ -6,7 +6,7 @@
       <h1><%= @product.name %></h1>
       <% if user_signed_in? && current_user == @product.user %>
         <%= button_to edit_product_path(@product), class: "edit-button vertical-align-text", method: :get do %>
-          <i class="fas fa-pencil-alt"></i>Редактировать
+          <i class="fas fa-pencil-alt"></i><%= I18n.t("products.edit") %>
         <% end %>
       <% end %>
     </div>
@@ -18,7 +18,7 @@
       <% else %>
         <%= "Название поселка" %>
       <% end %>
-      <a id="on-map" href="#">На карте</a>
+      <a id="on-map" href="#"><%= I18n.t("products.on-map") %></a>
     </div>
     <ul class="highways">
       <li class="highway"><i class="fas fa-car-alt"></i><a href="#">Киевское шоссе</a>, <span>25 км от МКАД</span></li>
@@ -33,17 +33,17 @@
 
     <div class="description">
       <div class="area">
-        <h4>Площадь</h4>
-        <p><%= @product.square %> сот.</p>
+        <h4><%= I18n.t("products.square") %></h4>
+        <p><%= @product.square %> <%= I18n.t("products.hundred-metres") %></p>
       </div>
       <p><%= @product.description %></p>
       <div class="learn-more">
-        <h4>Узнайте больше</h4>
-        <p>Задайте интересующие вас вопросы владельцу объявления.</p>
-        <button class="show-phone-button">Показать телефон</button>
+        <h4><%= I18n.t("products.card-center.learn-more") %></h4>
+        <p><%= I18n.t("products.card-center.ask-seller") %></p>
+        <button class="show-phone-button"><%= I18n.t("products.show-phone") %></button>
         <div class="show-phone">
           <h4><%= @user.phone %></h4>
-          <p>Пожалуйста, скажите, что нашли это объявление на ZGRD</p>
+          <p><%= I18n.t("products.say-you-found-it") %></p>
         </div>
       </div>
     </div>
@@ -52,38 +52,38 @@
 </div>
 
 <section class="general-info">
-  <h4>Общая информация</h4>
+  <h4><%= I18n.t("products.card-center.general-info") %></h4>
   <% if @product.gas.present? || @product.electricity.present? || @product.sewerage.present?  %>
     <ul>
       <% if @product.electricity.present? %>
-      <li><%= image_tag "light.svg" %>Электричество</li>
+      <li><%= image_tag "light.svg" %><%= I18n.t("products.electricity") %></li>
       <% end %>
       <% if @product.gas.present? %>
-      <li><%= image_tag "gas.svg" %>Газ</li>
+      <li><%= image_tag "gas.svg" %><%= I18n.t("products.gas") %></li>
       <% end %>
       <% if @product.sewerage.present? %>
-      <li><%= image_tag "santech.svg" %>Канализация</li>
+      <li><%= image_tag "santech.svg" %><%= I18n.t("products.sewerage") %></li>
       <% end %>
     </ul>
   <% end %>
   <div style="padding: 24px">
-    <span class="square">Площадь участка</span>
-    <span><%= @product.square %> сот.</span>
+    <span class="square"><%= I18n.t("products.card-center.square") %></span>
+    <span><%= @product.square %> <%= I18n.t("products.hundred-metres") %></span>
   </div>
 </section>
 
 <section class="actions">
-  <span><a href='#'><i class="fas fa-download"></i>Экспорт</a></span>
-  <span><a href='#'><i class="fas fa-print"></i>Печать</a></span>
-  <span><a href='#' class="red-link"><i class="fas fa-exclamation-triangle"></i>Пожаловаться</a></span>
+  <span><a href='#'><i class="fas fa-download"></i><%= I18n.t("products.card-center.export") %></a></span>
+  <span><a href='#'><i class="fas fa-print"></i><%= I18n.t("products.card-center.print") %></a></span>
+  <span><a href='#' class="red-link"><i class="fas fa-exclamation-triangle"></i><%= I18n.t("profile.complain") %></a></span>
 </section>
 
 <section class="author">
   <h2>ID <%= show_id(@user.id) %></h2>
-  <p><%= show_expirience(@user.created_at) %> на ZGRD</p>
-  <span><button class="show-phone-button">Показать телефон</button></span><span><button style="margin-bottom: 15px;" class="write-to-button">Написать сообщение</button></span>
+  <p><%= show_expirience(@user.created_at) %> на MyAcre</p>
+  <span><button class="show-phone-button"><%= I18n.t("products.show-phone") %></button></span><span><button style="margin-bottom: 15px;" class="write-to-button"><%= I18n.t("products.card-center.write") %></button></span>
   <div class="show-phone">
     <h4><%= @user.phone %></h4>
-    <p>Пожалуйста, скажите, что нашли это объявление на ZGRD</p>
+    <p><%= I18n.t("products.say-you-found-it") %></p>
   </div>
 </section>

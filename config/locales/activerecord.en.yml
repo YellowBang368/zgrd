@@ -1,0 +1,13 @@
+en:
+  activerecord:
+    attributes:
+      product:
+        name: "Title"
+        description: "Description"
+        price: "Price"
+        square: "Size of area(in hundred metres)"
+        avatar: "Main picture"
+        product_attachments: "Pictures"
+        gas: "Gas"
+        electicity: "Electicity"
+        sewerage: "Sewerage"

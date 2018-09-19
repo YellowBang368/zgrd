@@ -1,6 +1,6 @@
 module ProductsHelper
 
-  def exchange_rate(currency)
+  def exchange_rate(currency) # Каждый раз по новой читает, тормозит сайт. Исправь потом
     doc = Nokogiri::HTML(open("https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"))
     doc.xpath("//cube").each do |str|
       return str["rate"].to_i if str["currency"] == currency

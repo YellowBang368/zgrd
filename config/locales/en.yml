@@ -1,33 +1,82 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  header:
+    search: "Search"
+    deferred: "Deffered"
+    comparison: "Comparison"
+    home: "Home"
+    profile: "Profile"
+  devise:
+    log-in: "Log in"
+    log-out: "Log out"
+    sign-up: "Sign up"
+    forgot-your-password?: "Forgot your password?"
+    email: "Email"
+  nav-bar:
+    special-offers: "Special Offers"
+    actions: "Actions"
+    areas: "Areas"
+  profile:
+    notifications:
+      this-user-does-not-have-any-ads-yet: "This user does not have any ads yet"
+      you-do-not-have-any-ads-yet: "You do not have any ads yet"
+    write: "Write"
+    complain: "Complain"
+    ads: "Ads"
+    reviews: "Reviews"
+    change-status: "Change status"
+    upgrade-to-PRO: "Upgrade to PRO"
+  products:
+    area: "Area"
+    gas: "Gas"
+    electricity: "Electricity"
+    sewerage: "Sewerage"
+    learn-more: "Learn more"
+    add: "Add new area"
+    square: "Surface area"
+    description: "Description"
+    show-phone: "Show phone"
+    hundred-metres: "hundred metres"
+    on-map: "On map"
+    edit: "edit"
+    say-you-found-it: "Please say that you found this ad on MyAcre"
+    card-aside:
+      write: "Write a message"
+      track-for-price-changes: "Track for price changes"
+      advertisment: "Advertisment"
+    card-center:
+      write: "Write a message"
+      export: "Export"
+      print: "Print"
+      square: "Size of area"
+      general-info: "General info"
+      learn-more: "Learn more"
+      ask-seller: "Ask questions interesting to the owner of the ad"
+    card-footer:
+      rialtors-help: "Help of reliable realtors"
+      leave-a-request-desc: "Leave the application and experts will find your home"
+      leave-a-request: "Leave a request"
+      similiar-offers: "Similiar offers"
+      extra-offers: "Additional offers for sale"
+      without-intermediares: "Land plots without intermediaries"
+  estates:
+    add: "Add new estate"
+
+  footer:
+    subscribe:
+      text: "Learn about profitable offers and get personal recommendations"
+      subscribe: "Subscribe"
+    main:
+      special-offers: "Special offers"
+      actions: "Actions"
+      estates: "Estates"
+      news: "Our news"
+      forum: "Our forum"
+      blog: "Blog"
+      to-advertise: "To advertise"
+      technical-support: "Technical support"
+      my-ads: "My ads"
+      submit-your-add: "Submit your add"
+    copyrights:
+      mobile-version: "Mobile version"
+      statistics: "Statistics"
+      terms-of-use: "Terms of use"

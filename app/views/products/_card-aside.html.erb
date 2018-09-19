@@ -3,13 +3,13 @@
     <div class="price">
       <h4><%= show_price(@product.price) %></h4>
     </div>
-    <a href="#"><i class="far fa-envelope"></i>Следить за изменением цены</a>
-    <button class="show-phone-button" style="padding: 10px 16px 10px 16px; width: 200px">Показать телефон</button>
+    <a href="#"><i class="far fa-envelope"></i><%= I18n.t("products.card-aside.track-for-price-changes") %></a>
+    <button class="show-phone-button" style="padding: 10px 16px 10px 16px; width: 200px"><%= I18n.t("products.show-phone") %></button>
     <div class="show-phone">
       <h4><%= @user.phone %></h4>
-      <p>Пожалуйста, скажите, что нашли это объявление на ZGRD</p>
+      <p><%= I18n.t("products.say-you-found-it") %></p>
     </div>
-    <button class="write-to-button">Написать сообщение</button>
+    <button class="write-to-button"><%= I18n.t("products.card-aside.write") %></button>
   </div>
   <div class="author">
     <% if @user.pro != "nill" %>
@@ -23,7 +23,7 @@
   <a href="#">
     <img src="https://dekoriko.ru/images/article/orig/2018/03/doma-s-mansardoj-iz-penoblokov-prostye-proekty-i-planirovka-prostranstva-50.jpg" />
     <div class="description">
-      <h4>Реклама</h4>
+      <h4><%= I18n.t("products.card-aside.advertisment") %></h4>
       <p>Эксклюзивное инженерное решение «Проект 240» - тепловой контур дома со скидкой 50%. Кредит от 13%</p>
     </div>
   </a>

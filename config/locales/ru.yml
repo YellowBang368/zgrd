@@ -1,0 +1,82 @@
+ru:
+  header:
+    search: "Найти"
+    deferred: "Отложенные"
+    comparison: "Сравнение"
+    home: "Домой"
+    profile: "Личный кабинет"
+  devise:
+    log-in: "Войти"
+    log-out: "Выйти"
+    sign-up: "Регистрация"
+    forgot-your-password?: "Забыли пароль?"
+    devise: "Email"
+  nav-bar:
+    special-offers: "Спец. предложения"
+    actions: "Акции"
+    areas: "Участки"
+  profile:
+    notifications:
+      this-user-does-not-have-any-ads-yet: "У этого пользователя пока нет объявлений"
+      you-do-not-have-any-ads-yet: "У вас пока нет объявлений"
+    write: "Написать"
+    complain: "Пожаловаться"
+    ads: "Объявления"
+    reviews: "Отзывы"
+    change-status: "Изменить"
+    upgrade-to-PRO: "Подписка PRO"
+  products:
+    area: "Участок"
+    gas: "Газ"
+    electricity: "Электричество"
+    sewerage: "канализация"
+    learn-more: "Подробнее"
+    add: "Добавить новый"
+    square: "Площадь"
+    description: "Описание"
+    show-phone: "Показать телефон"
+    hundred-metres: "сот."
+    on-map: "На карте"
+    edit: "Редактировать"
+    say-you-found-it: Пожалуйста, скажите, что нашли это объявление на MyAcre"
+    card-aside:
+      write: "Написать сообщение"
+      track-for-price-changes: "Следить за изменением цен"
+      advertisment: "Реклама"
+    card-center:
+      write: "Написать сообщение"
+      export: "Экспорт"
+      print: "Печать"
+      square: "Площадь"
+      general-info: "Общая информация"
+      learn-more: "Подробнее"
+      ask-seller: "Задайте интересующие вас вопросы владельцу объявления"
+    card-footer:
+      rialtors-help: "Помощь надежных риэлторов"
+      leave-a-request-desc: "Оставьте заявку, и специалисты подберут подходящий дом"
+      leave-a-request: "Оставить заявку"
+      similiar-offers: "Похожие предложения"
+      extra-offers: "Дополнительные предложения по продаже"
+      without-intermediares: "Земельные участки без посредников"
+  estates:
+    add: "Добавить новый поселок"
+
+  footer:
+    subscribe:
+      text: "Узнавайте о выгодных предложениях и получайте личные рекомендации"
+      subscribe: "Подписаться"
+    main:
+      special-offers: "Спец. предложения"
+      actions: "Акции"
+      estates: "Поселки"
+      news: "Новости"
+      forum: "Форум"
+      blog: "Блог"
+      to-advertise: "Дать объявление"
+      technical-support: "Тех. поддержка"
+      my-ads: "Мои объявления"
+      submit-your-add: "Дать объявление"
+    copyrights:
+      mobile-version: "Мобильная версия"
+      statistics: "Статистика"
+      terms-of-use: "Пользовательское соглашение"

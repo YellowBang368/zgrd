@@ -3,23 +3,23 @@
 </script>
 <div id="put-email" class="vertical-text-align">
   <%= image_tag "envelope.svg"  %>
-  <p>Узнавайте о выгодных предложениях и получайте личные рекомендации</p>
-  <input placeholder="Электронная почта"></input>
-  <button class="btn-email">Подписаться</button>
+  <p><%= I18n.t("footer.subscribe.text") %></p>
+  <input placeholder="<%= I18n.t('devise.email') %>"></input>
+  <button class="btn-email"><%= I18n.t("footer.subscribe.subscribe") %></button>
 </div>
 <footer>
   <div class="container">
     <div class="row">
       <div class="col-sm-2 col-xs-1">
         <ul>
-          <li><a href="#">Спец. предложения</a></li>
-          <li><a href="#">Акции</a></li>
-          <li><a href="#">Поселки</a></li>
-          <li><a href="#">Новости</a></li>
-          <li><a href="#">Форум</a></li>
-          <li><a href="#">Блог</a></li>
-          <li><a href="#">Дать рекламу</a></li>
-          <li><a href="#">Тех. поддержка</a></li>
+          <li><a href="#"><%= I18n.t("footer.main.special-offers") %></a></li>
+          <li><a href="#"><%= I18n.t("footer.main.actions") %></a></li>
+          <li><a href="#"><%= I18n.t("footer.main.estates") %></a></li>
+          <li><a href="#"><%= I18n.t("footer.main.news") %></a></li>
+          <li><a href="#"><%= I18n.t("footer.main.forum") %></a></li>
+          <li><a href="#"><%= I18n.t("footer.main.blog") %></a></li>
+          <li><a href="#"><%= I18n.t("footer.main.to-advertise") %></a></li>
+          <li><a href="#"><%= I18n.t("footer.main.technical-support") %></a></li>
         </ul>
       </div>
       <div class="col-sm-8 col-xs-1">
@@ -31,11 +31,11 @@
       <div class="col-sm-2 col-xs-1">
         <div class="buttons">
           <% if user_signed_in? %>
-            <button class="peter-river-flat-button">Мои объявления</button>
+            <button class="peter-river-flat-button"><%= I18n.t("footer.main.my-ads") %></button>
           <% else %>
-            <button class="silver-flat-button" data-toggle="tooltip" title="Нужно авторизоваться">Мои объявления</button>
+            <button class="silver-flat-button" data-toggle="tooltip" title="Нужно авторизоваться"><%= I18n.t("footer.main.my-ads") %></button>
           <% end %>
-          <button class="peter-river-flat-button">Подать объявление</button>
+          <button class="peter-river-flat-button"><%= I18n.t("footer.main.submit-your-add") %></button>
         </div>
       </div>
     </div>
@@ -56,14 +56,14 @@
 </footer>
 <div id="copyright-block">
   <ul class="menu">
-    <li><a href=#>Мобильная версия</a></li>
-    <li><a href=#>Статистика</a></li>
-    <li><a href=#>Пользовательское соглашение</a></li>
+    <li><a href=#><%= I18n.t("footer.copyrights.mobile-version") %></a></li>
+    <li><a href=#><%= I18n.t("footer.copyrights.statistics") %></a></li>
+    <li><a href=#><%= I18n.t("footer.copyrights.terms-of-use") %></a></li>
   </ul>
   <div class="copyright">
     <p>
       © 2018  ООО «
-      <%= link_to "zgrd", root_path %>
+      <%= link_to "MyAcre", root_path %>
       »
     </p>
   </div>

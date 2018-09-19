@@ -1,0 +1,21 @@
+ru:
+  activerecord:
+    attributes:
+      user:
+        email: "Электронная почта"
+        first_name: "Имя"
+        last_name: "Фамилия"
+        phone: "Телефон"
+        password: "Пароль"
+        password_confirmation: "Подтверждерние пароля"
+        remember_me: "Запомнить меня"
+      product:
+        name: "Название"
+        description: "Описание"
+        price: "Цена"
+        square: "Площадь"
+        avatar: "Главная картинка"
+        product_attachments: "Картинки"
+        gas: "Газ"
+        electicity: "Электричество"
+        sewerage: "Канализация"

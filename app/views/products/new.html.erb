@@ -2,27 +2,36 @@
   <h2>Новый товар</h2>
 
   <%= form_for @product do |f| %>
-  <p>Название</p>
+
+  <%= f.label :name %><br/>
   <%= f.text_field :name %><br/>
-  <p>Описание</p>
+
+  <%= f.label :description %><br/>
   <%= f.text_area :description %><br/>
-  <p>Цена</p>
+
+  <%= f.label :price %><br/>
   <%= f.text_field :price %><br/>
-  <p>Площадь</p>
+
+  <%= f.label :square %><br/>
   <%= f.text_field :square %><br/>
-  <p>Главная картинка</p>
+
+  <%= f.label :avatar %><br/>
   <%= f.file_field :avatar %><br/>
-  <p>Картинки</p>
+
+  <%= f.label :product_attachments %>
   <%= f.fields_for :product_attachments do |p| %>
     <div class="field">
       <%= p.file_field :gallery, :multiple => true, name: "product_attachments[gallery][]" %>
     </div>
   <% end %>
-  <p>Газ</p>
+
+  <%= f.label :gas %><br/>
   <%= f.check_box :gas %><br/>
-  <p>Электричество</p>
+
+  <%= f.label :electricity %><br/>
   <%= f.check_box :electricity %><br/>
-  <p>Канализация</p>
+
+  <%= f.label :sewerage %><br/>
   <%= f.check_box :sewerage %><br/>
 
 
