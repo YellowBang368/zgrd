@@ -84,5 +84,26 @@ $nav-bar: #F2F2F2;
   .header-menu li:hover i {
     color: #FF0000;
   }
+}
 
+.header #local-settings-box {
+  position: relative;
+  display: inline-flex;
+  padding: 5px 10px;
+  white-space: nowrap;
+  cursor: pointer;
+  height: 27px;
+  line-height: 22px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: #f7f7f7;
+}
+
+.header #local-settings-box:hover {
+  color: #202020!important;
+  background: #ddd;
+  border-color: #ddd;
+  i {
+    color: #cccccc!important;
+  }
 }

@@ -3,10 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale, if: :session_locale_present?
 
-  def set_locale
-    I18n.locale = session[:locale]
-  end
-
   def change_locale
     session[:locale] = params[:locale]
     redirect_back fallback_location: root_path
@@ -17,11 +13,15 @@ class ApplicationController < ActionController::Base
     redirect_back fallback_location: root_path
   end
 
+  protected
+  def set_locale
+    I18n.locale = session[:locale]
+  end
+
   def session_locale_present?
     session[:locale].present?
   end
-  
-  protected
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |params|
       params.permit(:first_name, :last_name, :email, :phone, :password)

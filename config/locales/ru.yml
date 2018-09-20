@@ -10,7 +10,7 @@ ru:
     log-out: "Выйти"
     sign-up: "Регистрация"
     forgot-your-password?: "Забыли пароль?"
-    devise: "Email"
+    email: "Электронная почта"
   nav-bar:
     special-offers: "Спец. предложения"
     actions: "Акции"
@@ -31,7 +31,7 @@ ru:
     electricity: "Электричество"
     sewerage: "канализация"
     learn-more: "Подробнее"
-    add: "Добавить новый"
+    add: "Добавить"
     square: "Площадь"
     description: "Описание"
     show-phone: "Показать телефон"

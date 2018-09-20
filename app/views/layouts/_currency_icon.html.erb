@@ -1,0 +1,13 @@
+<%
+  icons_pointers = {
+   "EUR" => 'euro',
+   "USD" => 'dollar',
+   "GBP" => 'pound',
+   "RUB" => 'ruble',
+   "JPY" => 'yen',
+   "ILS" => 'shekel',
+  }
+  currency = session[:currency]
+%>
+
+<i class="fas fa-<%= icons_pointers[currency] %>-sign" style="margin: 0 5px;"></i>
