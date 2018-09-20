@@ -1,9 +1,40 @@
-
-
 <div class="modal_form modal-form-country">
-  <div class="head">
-    <p>Выберите страну</p>
-  </div>
-  <div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <h4>Где искать?</h4>
+      </div>
+      <div class="col-sm-4">
+        <h4>Ваша валюта</h4>
+        <ul class="choose-list">
+          <li><%= link_to change_currency_url(:currency => "EUR"), method: "POST" do %>
+            <%= image_tag asset_path "countrys/european-union.svg" %>EUR
+          <% end %></li>
+          <li><%= link_to change_currency_url(:currency => "GBP"), method: "POST" do %>
+            <%= image_tag asset_path "countrys/united-kingdom.svg" %>GBP
+          <% end %></li>
+          <li><%= link_to change_currency_url(:currency => "ILS"), method: "POST" do %>
+            <%= image_tag asset_path "countrys/israel.svg" %>ILS
+          <% end %></li>
+          <li><%= link_to change_currency_url(:currency => "JPY"), method: "POST" do %>
+            <%= image_tag asset_path "countrys/japan.svg" %>JPY
+          <% end %></li>
+          <li><%= link_to change_currency_url(:currency => "RUB"), method: "POST" do %>
+            <%= image_tag asset_path "countrys/russia.svg" %>RUB
+          <% end %></li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <h4>Ваш язык</h4>
+        <ul class="choose-list">
+          <li><%= link_to change_locale_url(:locale => "en"), method: "POST" do %>
+            <%= image_tag asset_path "countrys/united-kingdom.svg" %>English
+          <% end %></li>
+          <li><%= link_to change_locale_url(:locale => "ru"), method: "POST" do %>
+            <%= image_tag asset_path "countrys/russia.svg" %>Русский
+          <% end %></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

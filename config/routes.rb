@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post "favorite", to: "users#add_to_favorite"
   post "unfavorite", to: "users#remove_from_favorite"
   post "change_currency", to: "application#change_currency"
+  post "change_locale", to: "application#change_locale"
 
   get "/estates/:id/estate_products", to: "estates#show_products"
   resources :comments, except: [:index, :show]
