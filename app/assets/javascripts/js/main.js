@@ -5,13 +5,18 @@ ready = function() {
   /* Выбор представления ленты участков */
   $(".post-products-row").hide()
   $(".choose-products-view .open-products-column").click(function(){
-    $(".post-products-row").hide();
+    $(".post-products-default").hide();
     $(".post-products-column").show();
   });
 
   $(".choose-products-view .open-products-row").click(function(){
-    $(".post-products-column").hide();
+    $(".post-products-default").hide();
     $(".post-products-row").show();
+  });
+
+  $(".choose-products-view .open-products-map").click(function(){
+    $(".post-products-default").hide();
+    $(".post-products-map").show();
   });
 
   /* nav-bar */

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post "change_currency", to: "application#change_currency"
   post "change_locale", to: "application#change_locale"
 
+  get "create_conversation", to: "conversations#create"
   get "/estates/:id/estate_products", to: "estates#show_products"
   resources :comments, except: [:index, :show]
   resources :products

@@ -11,6 +11,7 @@
   <ul class="container choose-products-view">
     <li class="open-products-column"><i class="fas fa-align-justify"></i></li>
     <li class="open-products-row"><i class="fas fa-th-large"></i></li>
+    <li class="open-products-map"><i class="fas fa-map-marker-alt"></i></li>
   </ul>
 
   <div class="post-products-default post-products-column">
@@ -19,6 +20,10 @@
 
   <div class="post-products-default post-products-row">
     <%= render partial: "post-products-row", :locals => {:show_products => @index_products} %>
+  </div>
+
+  <div class="post-products-default post-products-map">
+    Тут должна быть карта
   </div>
 
 </body>

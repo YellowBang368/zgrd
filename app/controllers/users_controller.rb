@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @public_products = @user.products.where(public: true)
+    @private_products = @user.products.where(public: false)
   end
 
   def get_pro
