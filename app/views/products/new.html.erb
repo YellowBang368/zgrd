@@ -3,6 +3,9 @@
 
   <%= form_for @product do |f| %>
 
+  <%= f.label :public %>
+  <%= f.check_box :public, {:checked => 'checked'} %><br/>
+
   <%= f.label :name %><br/>
   <%= f.text_field :name %><br/>
 

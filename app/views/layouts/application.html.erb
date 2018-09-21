@@ -54,6 +54,7 @@
                 <li><a class="vertical-align-text open-dialog-country" id="local-settings-box" href="#"><i class="fab fa-telegram-plane"></i>  <%= puts_location(request.remote_ip) %> <%= render partial: "layouts/currency_icon" %> <%= session[:currency] %> <%= session[:locale].upcase %></a></li>
                 <li><a class="vertical-align-text" href="/favorite_products"><i class="fas fa-heart"></i><%= I18n.t('header.deferred') %></a></li>
                 <li><a class="vertical-align-text" href="#"><i class="fas fa-list-ul"></i><%= I18n.t('header.comparison') %></a></li>
+                <li><i class="fas fa-bell"></i></li>
                 <% if current_user.present? %>
                   <% if current_page?(current_user) %>
                     <li><%= link_to I18n.t("header.home"), root_path, class: "sign-in-button" %></li>
@@ -153,7 +154,10 @@
 
   <div id="overlay"></div>
 
-  <%= render partial: "layouts/footer"%>
+  <% unless controller_name == "conversations" %>
+     <%= render partial: "layouts/footer"%>
+  <% end %>
+  <%= render partial: "layouts/copyrights"%>
   <%= render partial: "layouts/modal-form-country"%>
 </body>
 </html>

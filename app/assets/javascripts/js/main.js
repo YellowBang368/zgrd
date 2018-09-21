@@ -137,6 +137,15 @@ ready = function() {
     $(".open-currency-menu").removeClass("clicked");
   });
 
+  $(".conversations-wrapper .chat").hide();
+  $(".conversations-wrapper .chat").first().show();
+  $(".conversations-wrapper .dialogs li").click(function(){
+    var $current_conversation_id = $(this).attr('data');
+    $(".conversations-wrapper .chat").hide();
+    $('.conversations-wrapper .chat[data="'+$current_conversation_id+'"]').show();
+  });
+
+
 };
 
 $(document).ready(ready);

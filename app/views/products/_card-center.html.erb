@@ -81,7 +81,8 @@
 <section class="author">
   <h2>ID <%= show_id(@user.id) %></h2>
   <p><%= show_expirience(@user.created_at) %> на MyAcre</p>
-  <span><button class="show-phone-button"><%= I18n.t("products.show-phone") %></button></span><span><button style="margin-bottom: 15px;" class="write-to-button"><%= I18n.t("products.card-center.write") %></button></span>
+  <span><button class="show-phone-button"><%= I18n.t("products.show-phone") %></button></span>
+  <span><%= button_to I18n.t("products.card-center.write"), conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: "post", class: "write-to-button", style: "margin-bottom: 15px" %></span>
   <div class="show-phone">
     <h4><%= @user.phone %></h4>
     <p><%= I18n.t("products.say-you-found-it") %></p>

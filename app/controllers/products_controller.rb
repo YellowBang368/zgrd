@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @session = Product.new
-    @products = Product.all
+    @products = Product.where(public: true)
     @index_products = []
     @products.each do |pr|
       @index_products << pr if pr.hot
@@ -49,7 +49,9 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.price_history["#{@product.updated_at}"] = @product.price 
+    @product.public = true if params["update-and-publish"].present?
+    @product.public = false if params["unpublish"].present?
+    @product.price_history["#{@product.updated_at}"] = @product.price
     @product.update(product_params)
     if @product.save
       redirect_to @product
@@ -60,7 +62,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :price, :avatar, :square, :gas, :electricity, :sewerage, :product_attachments)
+    params.require(:product).permit(:public, :name, :description, :price, :avatar, :square, :gas, :electricity, :sewerage, :product_attachments)
   end
 
   def form_1_submit

@@ -9,7 +9,7 @@
       <h4><%= @user.phone %></h4>
       <p><%= I18n.t("products.say-you-found-it") %></p>
     </div>
-    <button class="write-to-button"><%= I18n.t("products.card-aside.write") %></button>
+    <span><%= button_to I18n.t("products.card-aside.write"), conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: "post", class: "write-to-button", style: "margin-bottom: 15px" %></span>
   </div>
   <div class="author">
     <% if @user.pro != "nill" %>

@@ -3,10 +3,8 @@ class ConversationsController < ApplicationController
 
   def index
     @users = User.all
-    @conversations = Conversation.all
+    @conversations_with_current_user = Conversation.where('sender_id=' + current_user.id.to_s + ' OR ' + 'recipient_id=' + current_user.id.to_s)
   end
-
-
 
   def create
     if Conversation.between(params[:sender_id],params[:recipient_id]).present?

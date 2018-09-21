@@ -26,6 +26,7 @@ ru:
     change-status: "Изменить"
     upgrade-to-PRO: "Подписка PRO"
   products:
+    unpublished: "(не опубликовано)"
     area: "Участок"
     gas: "Газ"
     electricity: "Электричество"
@@ -38,6 +39,8 @@ ru:
     hundred-metres: "сот."
     on-map: "На карте"
     edit: "Редактировать"
+    unpublish: "В архив"
+    update-and-publish: "Сохранить и опубликовать"
     say-you-found-it: Пожалуйста, скажите, что нашли это объявление на MyAcre"
     card-aside:
       write: "Написать сообщение"

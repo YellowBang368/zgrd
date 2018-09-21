@@ -10,6 +10,7 @@
         <div class="description">
           <h5>
             <%= pr.name %>
+            <%= I18n.t('products.unpublished') unless pr.public %>
             <% if pr.hot %>
               <i class="fas fa-fire"></i>
             <% end %>

@@ -26,6 +26,7 @@ en:
     change-status: "Change status"
     upgrade-to-PRO: "Upgrade to PRO"
   products:
+    unpublished: "(unpublished)"
     area: "Area"
     gas: "Gas"
     electricity: "Electricity"
@@ -38,6 +39,8 @@ en:
     hundred-metres: "hundred metres"
     on-map: "On map"
     edit: "edit"
+    upublish: "Unpublish"
+    update-and-publish: "Update and publish"
     say-you-found-it: "Please say that you found this ad on MyAcre"
     card-aside:
       write: "Write a message"

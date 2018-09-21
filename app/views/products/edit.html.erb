@@ -28,5 +28,11 @@
 
 
   <%= f.submit %>
+  <% if @product.public %>
+    <%= f.submit I18n.t('products.unpublish'), name: "unpublish" %>
+  <% else %>
+    <%= f.submit I18n.t('products.update-and-publish'), name: "update-and-publish" %>
+  <% end %>
+  
   <% end %>
 </div>

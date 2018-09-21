@@ -1,29 +1,55 @@
-<div class="ui segment">
- <h3>Mailbox</h3>
- <div class="ui list">
-  <div>
-   <% @conversations.each do |conversation| %>
-   <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-    <% if conversation.sender_id == current_user.id %>
-      <% recipient = User.find(conversation.recipient_id) %>
-    <% else %>
-      <% recipient = User.find(conversation.sender_id) %>
-    <% end %>
-    <%= link_to recipient.first_name,   conversation_messages_path(conversation)%>
-   <% end %>
-  <% end %>
+<div class="container conversations-wrapper">
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="dialogs">
+        <h4>Диалоги</h4>
+        <% @conversations_with_current_user.each do |conversation, sender = User.find(conversation.sender_id), recipient = User.find(conversation.recipient_id)| %>
+          <% if conversation.sender_id == current_user.id %>
+            <li class="ds" data="<%= conversation.id %>"><%= image_tag puts_avatar(recipient) %><%= recipient.first_name %></li>
+          <% else %>
+            <li data="<%= conversation.id %>"><%= image_tag puts_avatar(sender) %><%= sender.first_name %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-sm-9">
+      <% @conversations_with_current_user.each do |conversation, sender = User.find(conversation.sender_id), recipient = User.find(conversation.recipient_id) | %>
+        <div class="chat" data="<%= conversation.id %>">
+          <div class="head">
+            <% if conversation.sender_id == current_user.id %>
+              <%= image_tag puts_avatar(recipient) %><%= recipient.first_name %></h4>
+            <% else %>
+              <%= image_tag puts_avatar(sender) %><%= sender.first_name %></h4>
+            <% end %>
+          </div>
+          <div class="chat-body">
+            <% conversation.messages.each do |message, user = User.find(message.user_id)| %>
+              <% if message.user_id == current_user.id %>
+                <div class="message my-message">
+                  <h4 class="name"><%= user.first_name %><span class="date"><%= message.created_at.strftime("%A %H:%M") %></span></h4>
+                  <p class="text"><%= message.body %></p>
+                </div>
+              <% else %>
+                <div class="message companion-message">
+                  <h4 class="name"><%= user.first_name %><span class="date"><%= message.created_at.strftime("%A %H:%M") %></span></h4>
+                  <p class="text"><%= message.body %></p>
+                </div>
+              <% end %>
+            <% end %>
+            <div class="message-field">
+              <%= form_for [conversation, conversation.messages.new], html: {class: "reply-form"} do |f| %>
+                <div class="field">
+                  <%= f.text_area :body, class: "form-control" %>
+                </div>
+                <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+                <div>
+                  <%= f.submit "Ответить", class: "ui blue labeled submit icon button" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
- </div>
-</div>
-<div>
- <h3>All Users</h3>
-  <div>
-   <% @users.each do |user| %>
-    <% if user.id != current_user.id %>
-     <div>
-   <%= user.first_name %> <%= link_to "Написать", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post"%>
- </div>
-  <% end %>
- <% end %>
- </div>
 </div>
