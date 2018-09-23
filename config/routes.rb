@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   resources :estates
   resources :users
 
-
   resources :conversations do
     resources :messages
   end

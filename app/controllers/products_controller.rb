@@ -59,7 +59,7 @@ class ProductsController < ApplicationController
       render "edit"
     end
   end
-
+  
   private
   def product_params
     params.require(:product).permit(:public, :name, :description, :price, :avatar, :square, :gas, :electricity, :sewerage, :product_attachments)

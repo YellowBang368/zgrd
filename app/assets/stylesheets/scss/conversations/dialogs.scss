@@ -39,7 +39,6 @@
   li {
     color: #fff;
     cursor: pointer;
-    padding: 10px 20px;
     display: flex;
     flex-flow: row;
     wrap: wrap;
@@ -50,5 +49,12 @@
       width: 22px;
       height: 22px;
     }
+  }
+  a {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
   }
 }

@@ -1,5 +1,16 @@
 module ApplicationHelper
 
+  def unread_messages
+    unread_messages = []
+    @conversations_with_current_user = Conversation.where('sender_id=' + current_user.id.to_s + ' OR ' + 'recipient_id=' + current_user.id.to_s)
+    @conversations_with_current_user.each do |conversation|
+      conversation.messages.each do |msg|
+        unread_messages << msg if msg.read == false && msg.user_id != current_user.id
+      end
+    end
+    unread_messages
+  end
+
   def puts_location(ip)
     geoip = GeoIP.new(Rails.root.join('lib/GeoIP.dat'))
     geoip.country("#{ip}").country_name

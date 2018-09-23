@@ -4,27 +4,39 @@
       <ul class="dialogs">
         <h4>Диалоги</h4>
         <% @conversations_with_current_user.each do |conversation, sender = User.find(conversation.sender_id), recipient = User.find(conversation.recipient_id)| %>
-          <% if conversation.sender_id == current_user.id %>
-            <li class="ds" data="<%= conversation.id %>"><%= image_tag puts_avatar(recipient) %><%= recipient.first_name %></li>
+          <% if current_user == sender %>
+            <li>
+              <%= link_to conversations_path(conversation_id: conversation.id) do %>
+                <%= image_tag puts_avatar(recipient) %><%= recipient.first_name %>
+              <% end %>
+            </li>
           <% else %>
-            <li data="<%= conversation.id %>"><%= image_tag puts_avatar(sender) %><%= sender.first_name %></li>
+            <li>
+              <%= link_to conversations_path(conversation_id: conversation.id) do %>
+                <%= image_tag puts_avatar(sender) %><%= sender.first_name %>
+              <% end %>
+            </li>
           <% end %>
         <% end %>
       </ul>
     </div>
     <div class="col-sm-9">
-      <% @conversations_with_current_user.each do |conversation, sender = User.find(conversation.sender_id), recipient = User.find(conversation.recipient_id) | %>
-        <div class="chat" data="<%= conversation.id %>">
+      <% if @conversation.is_a?(Conversation) %>
+        <div class="chat">
           <div class="head">
-            <% if conversation.sender_id == current_user.id %>
-              <%= image_tag puts_avatar(recipient) %><%= recipient.first_name %></h4>
+            <% if @conversation.sender == current_user %>
+              <%= link_to @conversation.recipient do %>
+                <%= image_tag puts_avatar(@conversation.recipient) %><%= @conversation.recipient.first_name %>
+              <% end %>
             <% else %>
-              <%= image_tag puts_avatar(sender) %><%= sender.first_name %></h4>
+              <%= link_to @conversation.sender do %>
+                <%= image_tag puts_avatar(@conversation.sender) %><%= @conversation.sender.first_name %>
+              <% end %>
             <% end %>
           </div>
           <div class="chat-body">
-            <% conversation.messages.each do |message, user = User.find(message.user_id)| %>
-              <% if message.user_id == current_user.id %>
+            <% @conversation.messages.each do |message, user = User.find(message.user_id)| %>
+              <% if user == current_user %>
                 <div class="message my-message">
                   <h4 class="name"><%= user.first_name %><span class="date"><%= message.created_at.strftime("%A %H:%M") %></span></h4>
                   <p class="text"><%= message.body %></p>
@@ -37,7 +49,7 @@
               <% end %>
             <% end %>
             <div class="message-field">
-              <%= form_for [conversation, conversation.messages.new], html: {class: "reply-form"} do |f| %>
+              <%= form_for [@conversation, @conversation.messages.new], html: {class: "reply-form"} do |f| %>
                 <div class="field">
                   <%= f.text_area :body, class: "form-control" %>
                 </div>
@@ -48,6 +60,10 @@
               <% end %>
             </div>
           </div>
+        </div>
+      <% else %>
+        <div class="chat empty">
+          Выберите диалог
         </div>
       <% end %>
     </div>
