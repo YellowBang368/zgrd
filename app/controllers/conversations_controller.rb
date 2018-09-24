@@ -4,11 +4,14 @@ class ConversationsController < ApplicationController
   # При вызове post conversation_path вызывает create, после редирект на get conversation_path => index
 
   def index
-    redirect_back fallback_location: root_path unless conversation_belongs_to_user?(conversation_params[:conversation_id])
-    @conversation = Conversation.find(conversation_params[:conversation_id])
-    read_messages_in(@conversation)
-    @users = User.all
-    @conversations_with_current_user = Conversation.where('sender_id=' + current_user.id.to_s + ' OR ' + 'recipient_id=' + current_user.id.to_s)
+    if conversation_params[:conversation_id].present?
+      redirect_back fallback_location: root_path unless conversation_belongs_to_user?(conversation_params[:conversation_id])
+      @conversation = Conversation.find(conversation_params[:conversation_id])
+      read_messages_in(@conversation)
+    end
+      @users = User.all
+      @conversations_with_current_user = Conversation.where('sender_id=' + current_user.id.to_s + ' OR ' + 'recipient_id=' + current_user.id.to_s)
+
   end
 
   def create

@@ -4,10 +4,12 @@
       <p>Уведомления</p>
       <p>Настройки</p>
     </div>
-    <% unread_messages.each do |message| %>
-    <li><%= link_to conversations_path(conversation_id: message.conversation.id) do %>
-      <i class="fas fa-circle"></i><%= message.body %><span><%= message.user.first_name %></span>
-      <% end %></li>
+    <% if user_signed_in? %>
+      <% unread_messages.each do |message| %>
+      <li><%= link_to conversations_path(conversation_id: message.conversation.id) do %>
+        <i class="fas fa-circle"></i><%= message.body %><span><%= message.user.first_name %></span>
+        <% end %></li>
+        <% end %>
       <% end %>
   </ul>
 </div>
