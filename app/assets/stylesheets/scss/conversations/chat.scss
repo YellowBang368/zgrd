@@ -61,6 +61,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 15px;
   .name {
     color: #444;
     font-size: 16px;
@@ -71,6 +72,16 @@
     font-style: italic;
     color: #ccc;
     font-size: 14px;
+  }
+  .message-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .fa-circle {
+    color: #94C2ED;
+    margin-left: 10px;
+    font-size: 10px;
   }
 }
 
@@ -94,6 +105,7 @@
   color: #fff;
   padding: 15px 15px;
   position: relative;
+  margin: 0;
 }
 
 .conversations-wrapper .text:before {

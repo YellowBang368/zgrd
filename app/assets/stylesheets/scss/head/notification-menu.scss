@@ -2,9 +2,19 @@
   position: relative;
 }
 
+.notification-bell .new-messages-circle {
+  position: absolute;
+  top: -7px;
+  left: 8px;
+  i {
+    color: #94C2ED!important;
+    font-size: 8px!important;
+  }
+}
+
 .notification-wrapper {
   position: absolute;
-  top: 25px;
+  top: 22px;
   left: -60px;
   display: none;
   width: 230px;
@@ -46,15 +56,19 @@
   }
   i {
     color: #94C2ED;
-    font-size: 11px;
+    font-size: 8px!important;
   }
   span {
     margin-left: 10px;
     color: #c4c4c4;
-    font-size: 16px;
+    font-size: 12px;
   }
 }
 
+
+.notification-bell:hover .fa-bell {
+  color: #ccc!important;
+}
 
 .notification-bell:hover .notification-wrapper {
   display: block;

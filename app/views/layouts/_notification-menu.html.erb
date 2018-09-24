@@ -1,15 +1,21 @@
 <div class="notification-wrapper">
-  <ul>
-    <div class="head">
-      <p>Уведомления</p>
-      <p>Настройки</p>
-    </div>
-    <% if user_signed_in? %>
+  <% if user_signed_in? && unread_messages.present? %>
+    <ul>
+      <div class="head">
+        <p>Уведомления</p>
+        <p>Настройки</p>
+      </div>
       <% unread_messages.each do |message| %>
-      <li><%= link_to conversations_path(conversation_id: message.conversation.id) do %>
-        <i class="fas fa-circle"></i><%= message.body %><span><%= message.user.first_name %></span>
-        <% end %></li>
-        <% end %>
+        <li>
+          <%= link_to conversations_path(conversation_id: message.conversation.id) do %>
+            <i class="fas fa-circle"></i><%= "«"+message.body.split(" ").first.gsub(/\p{^Alnum}/, '') + "...»" %><span><%= message.user.first_name %></span>
+          <% end %>
+        </li>
       <% end %>
-  </ul>
+    </ul>
+    <% else %>
+      <div class="head">
+        <p>Нет уведомлений</p>
+      </div>
+    <% end %>
 </div>

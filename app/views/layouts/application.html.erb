@@ -54,11 +54,18 @@
                 <li><a class="vertical-align-text open-dialog-country" id="local-settings-box" href="#"><i class="fab fa-telegram-plane"></i>  <%= puts_location(request.remote_ip) %> <%= render partial: "layouts/currency_icon" %> <%= session[:currency] %> <%= session[:locale].upcase %></a></li>
                 <li><a class="vertical-align-text" href="/favorite_products"><i class="fas fa-heart"></i><%= I18n.t('header.deferred') %></a></li>
                 <li><a class="vertical-align-text" href="#"><i class="fas fa-list-ul"></i><%= I18n.t('header.comparison') %></a></li>
-                <li class="notification-bell"><i class="fas fa-bell"></i><%= render partial: "layouts/notification-menu" %></li>
+                <li class="notification-bell">
+                  <% if user_signed_in? && unread_messages.present? %>
+                    <%= link_to conversations_path do %>
+                      <i class="fas fa-bell"></i><span class="new-messages-circle"><i class="fas fa-circle"></i></span>
+                    <% end %>
+                  <% else %>
+                    <%= link_to conversations_path do %>
+                      <i class="fas fa-bell"></i>
+                    <% end %>
+                  <% end %>
+                <%= render partial: "layouts/notification-menu" %></li>
                 <% if current_user.present? %>
-                  <li><%= link_to conversations_path do %>
-                    <i class="fas fa-envelope"></i>
-                    <% end %></li>
                   <% if current_page?(current_user) %>
                     <li><%= link_to I18n.t("header.home"), root_path, class: "sign-in-button" %></li>
                   <% else %>
