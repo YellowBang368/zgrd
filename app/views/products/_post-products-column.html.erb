@@ -8,34 +8,56 @@
       <% end %>
         <%= image_tag pr.avatar.url %>
         <div class="description">
-          <h5>
-            <%= pr.name %>
-            <%= I18n.t('products.unpublished') unless pr.public %>
-            <% if pr.hot %>
-              <i class="fas fa-fire"></i>
-            <% end %>
-            <% if user_signed_in? && current_user == pr.user %>
-              <%= button_to edit_product_path(pr), class: "edit-product", method: :get do %>
-                <i class="fas fa-pencil-alt"></i>
+          <div class="row full-column">
+            <div class="col">
+              <div class="row full-column">
+                <div class="col-sm-5">
+                  <h4 class="name"><%= pr.name %></h4>
+                  <% if pr.estate.present? %>
+                  <h4 class="estate"><%= link_to pr.estate.title, pr.estate %></h4>
+                  <% end %>
+                </div>
+                <div class="col-sm-7">
+                  <h4 class="price"><%= show_price(pr.price) %></h4>
+                  <h4 class="price-for-metre"><%= (pr.price / pr.square / 100).round(2).to_s + "€/м²"  %></h4>
+                </div>
+                <div class="col-sm-12" style="flex-grow: 1;">
+                  <p class="text"><%= pr.description %></p>
+                </div>
+                <div class="col-sm-12" style="align-items: center; display: flex;">
+                  <button class="show-phone-button">Показать телефон</button>
+                  <div class="show-phone">
+                    <h4><%= pr.user.phone %></h4>
+                  </div>
+                  <% if user_signed_in? && current_user.favorite_ids != nil && current_user.favorite_ids.include?("#{pr.id}") %>
+                    <%= link_to unfavorite_path(:product_id => pr), method: "POST" do %>
+                      <i class="fas fa-heart"></i>
+                    <% end %>
+                  <% elsif user_signed_in? %>
+                    <%= link_to favorite_path(:product_id => pr), method: "POST" do %>
+                    <i class="fas fa-heart transparent"></i>
+                    <% end %>
+                  <% end %>
+                  <i class="fas fa-exclamation-triangle transparent"></i>
+                  <% if user_signed_in? && current_user == pr.user %>
+                    <%= button_to edit_product_path(pr), class: "edit-product", method: :get do %>
+                      <i class="fas fa-pencil-alt"></i>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <h4 class="owner-name"><%= pr.user.first_name.to_s + " " + pr.user.last_name %></h4>
+              <% if pr.user.status == "developer" %>
+                <h4 class="developer">Застройщик</h4>
               <% end %>
-            <% end %>
-            <% if user_signed_in? && current_user.favorite_ids != nil && current_user.favorite_ids.include?("#{pr.id}") %>
-              <%= link_to unfavorite_path(:product_id => pr), method: "POST" do %>
-                <i class="fas fa-heart"></i>
+              <% if pr.user.pro == "light" %>
+                <h4 class="honest">pro</h4>
               <% end %>
-            <% elsif user_signed_in? %>
-              <%= link_to favorite_path(:product_id => pr), method: "POST" do %>
-              <i class="fas fa-heart transparent"></i>
-              <% end %>
-            <% end %>
-          </h5>
-          <p class="text"><%= pr.description[0..420] + "..." %></p>
-          <ul class="down-list">
-            <li><h3 class="price" ><%= show_price(pr.price) %></h3></li>
-            <li><%= link_to I18n.t('products.learn-more'), pr, class: "see-more" %></li>
-          </ul>
-        </div>
-      </article>
+            </div>
+          </div>
+        </article>
       <%= render partial: "products/price-difference", :locals => {:product => pr} if defined?(show_price_difference) && show_price_difference == true %>
       <% end %>
     </section>

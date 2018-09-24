@@ -4,6 +4,7 @@ ready = function() {
 
   /* Выбор представления ленты участков */
   $(".post-products-row").hide()
+  $(".post-products-map").hide()
   $(".choose-products-view .open-products-column").click(function(){
     $(".post-products-default").hide();
     $(".post-products-column").show();

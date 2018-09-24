@@ -75,8 +75,10 @@
           <ul class="user-menu">
             <li class="open-user-products"><p><%= I18n.t("profile.ads") %></p></li>
             <li class="open-user-comments"><p><%= I18n.t("profile.reviews") %></p></li>
-            <li class="open-dialog-status"><p><%= I18n.t("profile.change-status") %></p></li>
-            <li class="open-dialog-pro"><p><%= I18n.t("profile.upgrade-to-PRO") %></p></li>
+            <% if user_signed_in? && @user == current_user %>
+              <li class="open-dialog-status"><p><%= I18n.t("profile.change-status") %></p></li>
+              <li class="open-dialog-pro"><p><%= I18n.t("profile.upgrade-to-PRO") %></p></li>
+            <% end %>
           </ul>
         </div>
         <% if current_user.present? && current_user.id != @user.id %>

@@ -31,10 +31,16 @@ $nav-bar: #F2F2F2;
     font-size: 1em;
     color: #FF6F29;
   }
+  .fa-exclamation-triangle {
+    font-size: 1em;
+    margin: 0 8px;
+    color: #FE4365;
+  }
   .fa-heart {
     float: right;
     font-size: 1em;
     color: #FE4365;
+    margin: 0 8px;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -57,6 +63,67 @@ $nav-bar: #F2F2F2;
     transform: scale(1.03);
   }
 }
+
+/* text, colors, fonts */
+.post-products-default {
+  .name {
+    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.38;
+    opacity: .9;
+  }
+  .estate {
+    font-size: 14px;
+    line-height: 1.43;
+    text-decoration: none;
+    color: #2b87db;
+  }
+  .price {
+    margin-bottom: 0;
+    margin-top: -2px;
+    margin-left: -8px;
+    padding: 2px 8px 0;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+  }
+  .price-for-metre {
+    padding-bottom: 2px;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #7a7a7a;
+  }
+  .text {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    color: #121212;
+    margin: 0;
+  }
+  .owner-name {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    color: #121212;
+  }
+  .developer {
+    color: #2e9e00;
+    background-color: rgba(46,158,0,.07);
+    padding: 1px 6px 2px;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 15px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .show-phone h4 {
+    margin: 0!important;
+  }
+}
+
 
 @media (max-width: 490px) {
   .choose-products-view {

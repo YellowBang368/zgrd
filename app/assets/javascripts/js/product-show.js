@@ -7,9 +7,14 @@ ready = function() {
   $(".show-phone").hide();
 
   $(".show-phone").hide();
-    $(".show-phone-button").click(function(){
+    $(".show-product section .show-phone-button").click(function(){
       $(this).hide();
       $(this).closest("section").find(".show-phone").show();
+    });
+
+    $("article .show-phone-button").click(function(){
+      $(this).hide();
+      $(this).closest("article").find(".show-phone").show();
     });
 };
 

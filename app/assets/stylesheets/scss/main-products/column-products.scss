@@ -16,7 +16,7 @@ $nav-bar: #F2F2F2;
     flex-direction: row;
     box-shadow: 0px 2px 13px 0px rgba(179,179,179,1);
     margin: 1% 0;
-    height: 200px;
+    height: 220px;
     cursor: pointer;
     transition: all 0.3s ease;
     img {
@@ -28,17 +28,11 @@ $nav-bar: #F2F2F2;
       flex-direction: column;
       width: 75%;
       height: 100%;
-      padding: 1%;
-      .text {
-        font-size: 14px;
-        margin: 0;
-        margin-bottom: 5px;
-      }
+      padding: 5px 10px;
     }
     .down-list {
-      list-style: none;
       display: flex;
-      justify-content: space-between;
+      align-items: center;
       flex-flow: row;
       margin: 0;
       padding: 0;
@@ -46,11 +40,6 @@ $nav-bar: #F2F2F2;
     .see-more {
       float: right;
       display: inline-block;
-    }
-    .price {
-      display: inline-block;
-      color: $main-color-hover;
-      font-size: 1.1em;
     }
   }
 
