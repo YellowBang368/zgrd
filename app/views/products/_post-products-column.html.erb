@@ -18,8 +18,10 @@
                   <% end %>
                 </div>
                 <div class="col-sm-7">
-                  <h4 class="price"><%= show_price(pr.price) %></h4>
-                  <h4 class="price-for-metre"><%= (pr.price / pr.square / 100).round(2).to_s + "€/м²"  %></h4>
+                  <% if pr.price.present && pr.square.present? %>
+                    <h4 class="price"><%= show_price(pr.price) %></h4>
+                    <h4 class="price-for-metre"><%= (pr.price / pr.square / 100).round(2).to_s + "€/м²"  %></h4>
+                  <% end %>
                 </div>
                 <div class="col-sm-12" style="flex-grow: 1;">
                   <p class="text"><%= pr.description %></p>
