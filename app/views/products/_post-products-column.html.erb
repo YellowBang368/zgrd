@@ -18,7 +18,7 @@
                   <% end %>
                 </div>
                 <div class="col-sm-7">
-                  <% if pr.price.present && pr.square.present? %>
+                  <% if pr.price.present? && pr.square.present? %>
                     <h4 class="price"><%= show_price(pr.price) %></h4>
                     <h4 class="price-for-metre"><%= (pr.price / pr.square / 100).round(2).to_s + "€/м²"  %></h4>
                   <% end %>
