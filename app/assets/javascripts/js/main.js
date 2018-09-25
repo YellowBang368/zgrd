@@ -143,6 +143,7 @@ ready = function() {
     $(".open-currency-menu").removeClass("clicked");
   });
 
+
 };
 
 $(document).ready(ready);

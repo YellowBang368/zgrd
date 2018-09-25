@@ -37,10 +37,11 @@ $nav-bar: #F2F2F2;
     color: #FE4365;
   }
   .fa-heart {
-    float: right;
-    font-size: 1em;
+    font-size: 14px;
     color: #FE4365;
-    margin: 0 8px;
+    margin-left: 8px;
+    display: flex;
+    align-items: center; 
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;

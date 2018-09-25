@@ -9,8 +9,8 @@
         <%= image_tag pr.avatar.url %>
         <div class="description">
           <div class="row full-column">
-            <div class="col">
-              <div class="row full-column">
+            <div class="col" style="height: 208px">
+              <div class="row">
                 <div class="col-sm-5">
                   <h4 class="name"><%= pr.name %></h4>
                   <% if pr.estate.present? %>
@@ -23,31 +23,27 @@
                     <h4 class="price-for-metre"><%= (pr.price / pr.square / 100).round(2).to_s + "€/м²"  %></h4>
                   <% end %>
                 </div>
-                <div class="col-sm-12" style="flex-grow: 1;">
-                  <p class="text"><%= pr.description[0..535] %></p>
-                </div>
-                <div class="col-sm-12" style="align-items: center; display: flex;">
-                  <button class="show-phone-button">Показать телефон</button>
-                  <div class="show-phone">
-                    <h4><%= pr.user.phone %></h4>
-                  </div>
-                  <% if user_signed_in? && current_user.favorite_ids != nil && current_user.favorite_ids.include?("#{pr.id}") %>
-                    <%= link_to unfavorite_path(:product_id => pr), method: "POST" do %>
-                      <i class="fas fa-heart"></i>
-                    <% end %>
-                  <% elsif user_signed_in? %>
-                    <%= link_to favorite_path(:product_id => pr), method: "POST" do %>
-                    <i class="fas fa-heart transparent"></i>
-                    <% end %>
-                  <% end %>
-                  <i class="fas fa-exclamation-triangle transparent"></i>
-                  <% if user_signed_in? && current_user == pr.user %>
-                    <%= button_to edit_product_path(pr), class: "edit-product", method: :get do %>
-                      <i class="fas fa-pencil-alt"></i>
-                    <% end %>
-                  <% end %>
-                </div>
               </div>
+              <p class="text"><%= pr.description[0..535] %></p>
+              <button class="show-phone-button">Показать телефон</button>
+              <div class="show-phone">
+                <h4><%= pr.user.phone %></h4>
+              </div>
+              <% if user_signed_in? && current_user.favorite_ids != nil && current_user.favorite_ids.include?("#{pr.id}") %>
+                <%= button_to unfavorite_path(:product_id => pr), method: "POST", class: "write-to-button to_favorite unfavorite" do %>
+                  Убрать из избранного<i class="fas fa-heart"></i>
+                <% end %>
+              <% elsif user_signed_in? %>
+                <%= button_to favorite_path(:product_id => pr), method: "POST", class: "write-to-button to_favorite favorite" do %>
+                  Добавить в избранное<i class="fas fa-heart transparent"></i>
+                <% end %>
+              <% end %>
+              <button class="write-to-button">Пожаловаться <i class="fas fa-exclamation-triangle transparent"></i></button>
+              <% if user_signed_in? && current_user == pr.user %>
+                <%= button_to edit_product_path(pr), class: "edit-product", method: :get do %>
+                  <i class="fas fa-pencil-alt"></i>
+                <% end %>
+              <% end %>
             </div>
             <div class="col-sm-2">
               <h4 class="owner-name"><%= pr.user.first_name.to_s + " " + pr.user.last_name %></h4>

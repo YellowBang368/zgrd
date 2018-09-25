@@ -40,7 +40,10 @@ $nav-bar: #F2F2F2;
 
   .description {
     padding: 15px;
+    height: 60%;
     .text {
+      height: 66%;
+      overflow: hidden;
       font-size: 14px;
       font-family: "Roboto", sans-serif;
     }

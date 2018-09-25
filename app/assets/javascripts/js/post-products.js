@@ -1,10 +1,20 @@
 $(document).ready(function(){
-  $(".fa-heart").click(function(){
-    if ($(this).hasClass("transparent")) {
-      $(this).removeClass("transparent");
+  $(".to_favorite").click(function(){
+    var $this = $(this);
+    if ($this.hasClass("favorite")) {
+      $this.html("Убрать из избранного <i class='fas fa-heart'></i>");
+      $this.removeClass("favorite").addClass("unfavorite");
+      var $action = $this.closest("form").attr('action').replace(/favorite/, 'unfavorite' );
+      setTimeout(function(){
+        $this.closest("form").attr('action', $action)
+      }, 500);
+    } else {
+      $this.html("Добавить в избранное<i class='fas fa-heart transparent'></i>");
+      $this.removeClass("unfavorite").addClass("favorite");
+      var $action = $this.closest("form").attr('action').replace(/unfavorite/, 'favorite' );
+      setTimeout(function(){
+        $this.closest("form").attr('action', $action)
+      }, 500);
     }
-    else {
-      $(this).addClass("transparent", 300);
-    };
-  });
+  })
 });
