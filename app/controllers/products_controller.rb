@@ -40,6 +40,8 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    Product.find(params[:id]).destroy
+    redirect_back fallback_location: root_path
   end
 
   def edit
@@ -59,7 +61,7 @@ class ProductsController < ApplicationController
       render "edit"
     end
   end
-  
+
   private
   def product_params
     params.require(:product).permit(:public, :name, :description, :price, :avatar, :square, :gas, :electricity, :sewerage, :product_attachments)

@@ -25,6 +25,11 @@ class ConversationsController < ApplicationController
     redirect_to conversations_path(conversation_id: @conversation.id)
   end
 
+  def destroy
+    Conversation.find(params[:id]).destroy
+    redirect_to conversations_path
+  end
+
   private
   def read_messages_in
     unread_messages = Conversation.find(conversation_params[:conversation_id]).messages.where.not(user_id: current_user.id, read: true)
