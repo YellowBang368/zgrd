@@ -51,6 +51,18 @@
                   Добавить в избранное<i class="fas fa-heart transparent"></i>
                 <% end %>
               <% end %>
+              <% if !user_signed_in? %>
+                <% session[:favorite] = [] unless session[:favorite].present? %>
+                <% if session[:favorite].include?("#{pr.id}") %>
+                  <%= button_to unfavorite_path(:product_id => pr), method: "POST", class: "write-to-button to_favorite unfavorite" do %>
+                    Убрать из избранного<i class="fas fa-heart"></i>
+                  <% end %>
+                <% else %>
+                  <%= button_to favorite_path(:product_id => pr), method: "POST", class: "write-to-button to_favorite favorite" do %>
+                    Добавить в избранное<i class="fas fa-heart transparent"></i>
+                  <% end %>
+                <% end %>
+              <% end %>
               <% if current_user == pr.user %>
                 <%= button_to edit_product_path(pr), class: "write-to-button", method: :get do %>
                   Редактировать<i class="fas fa-pencil-alt"></i>

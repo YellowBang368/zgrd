@@ -18,16 +18,28 @@ class UsersController < ApplicationController
   end
 
   def favorite
-    redirect_back fallback_location: root_path unless user_signed_in?
+    if user_signed_in?
+      @deffered = Product.find(current_user.favorite_ids)
+    else
+      @deffered = Product.find(session[:favorite])
+    end
   end
 
   def add_to_favorite
-    current_user.favorite_ids << params["product_id"] unless current_user.favorite_ids.include?(params["product_id"])
-    current_user.save!
+    if user_signed_in?
+      current_user.favorite_ids << params["product_id"] unless current_user.favorite_ids.include?(params["product_id"])
+      current_user.save!
+    else
+      session[:favorite] << params["product_id"] unless session[:favorite].include?(params["product_id"])
+    end
   end
 
   def remove_from_favorite
-    current_user.favorite_ids.delete(params["product_id"]) if current_user.favorite_ids.include?(params["product_id"])
-    current_user.save!
+    if user_signed_in?
+      current_user.favorite_ids.delete(params["product_id"]) if current_user.favorite_ids.include?(params["product_id"])
+      current_user.save!
+    else
+      session[:favorite].delete(params["product_id"]) if session[:favorite].include?(params["product_id"])
+    end
   end
 end

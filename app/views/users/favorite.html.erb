@@ -21,10 +21,10 @@
   </ul>
 
   <div class="post-products-default post-products-column">
-    <%= render partial: "products/post-products-column", :locals => {:show_products => Product.find(current_user.favorite_ids), :show_price_difference => true} %>
+    <%= render partial: "products/post-products-column", :locals => {:show_products => @deffered} %>
   </div>
   <div class="post-products-default post-products-row">
-    <%= render partial: "products/post-products-row", :locals => {:show_products => Product.find(current_user.favorite_ids)} %>
+    <%= render partial: "products/post-products-row", :locals => {:show_products => @deffered} %>
   </div>
 
 </div>
