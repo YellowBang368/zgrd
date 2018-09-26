@@ -60,15 +60,21 @@ ready = function() {
   });
 
   /* user-show */
-  $(".post-comments").hide();
+  $(".post-user-objects").hide();
+  $(".post-user-products").show();
   $(".open-user-comments").click(function(){
-    $(".post-user-products").hide();
+    $(".post-user-objects").hide();
     $(".post-comments").show();
   });
 
   $(".open-user-products").click(function(){
-    $(".post-comments").hide();
+    $(".post-user-objects").hide();
     $(".post-user-products").show();
+  });
+
+  $(".open-user-private-products").click(function(){
+    $(".post-user-objects").hide();
+    $(".post-user-private-products").show();
   });
 
   $('.open-dialog-pro').click( function(event){
@@ -142,7 +148,6 @@ ready = function() {
     $(".currency-menu").css({"display":"none"});
     $(".open-currency-menu").removeClass("clicked");
   });
-
 
 };
 

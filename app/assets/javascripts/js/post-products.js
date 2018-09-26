@@ -17,4 +17,17 @@ $(document).ready(function(){
       }, 500);
     }
   })
+
+  $(".post-price-difference").hide();
+  $(".open-price-difference").click(function(){
+    var $this = $(this);
+    var $product_id = $this.closest("article").attr("data");
+    if ($this.hasClass("showed")) {
+      $(".post-price-difference[data='"+ $product_id +"']").hide();
+      $this.removeClass("showed");
+    } else {
+      $(".post-price-difference[data='"+ $product_id +"']").show();
+      $this.addClass("showed");
+    }
+  });
 });

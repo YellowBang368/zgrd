@@ -19,7 +19,7 @@ $nav-bar: #F2F2F2;
     height: 220px;
     cursor: pointer;
     transition: all 0.3s ease;
-    img {
+    img, .fotorama {
       height: 100%;
       width: 25%;
     }
@@ -29,22 +29,6 @@ $nav-bar: #F2F2F2;
       width: 75%;
       height: 100%;
       padding: 5px 10px;
-    }
-    .text {
-      height: 57%;
-      margin-bottom: 5px;
-      overflow: hidden;
-    }
-    .down-list {
-      display: flex;
-      align-items: center;
-      flex-flow: row;
-      margin: 0;
-      padding: 0;
-    }
-    .see-more {
-      float: right;
-      display: inline-block;
     }
   }
 
@@ -68,6 +52,22 @@ $nav-bar: #F2F2F2;
     margin: 0;
     display: inline-flex;
     justify-content: center;
+  }
+  .text {
+    height: 57%;
+    margin-bottom: 5px;
+    overflow: hidden;
+  }
+  .down-list {
+    display: flex;
+    align-items: center;
+    flex-flow: row;
+    margin: 0;
+    padding: 0;
+  }
+  .see-more {
+    float: right;
+    display: inline-block;
   }
 }
 

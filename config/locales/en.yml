@@ -1,7 +1,7 @@
 en:
   header:
     search: "Search"
-    deferred: "Deffered"
+    deferred: "Defered"
     comparison: "Comparison"
     home: "Home"
     profile: "Profile"
@@ -22,6 +22,7 @@ en:
     write: "Write"
     complain: "Complain"
     ads: "Ads"
+    unpublished-ads: "Ads in archive"
     reviews: "Reviews"
     change-status: "Change status"
     upgrade-to-PRO: "Upgrade to PRO"

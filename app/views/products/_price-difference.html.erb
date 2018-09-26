@@ -4,5 +4,4 @@
   <% data << [product.updated_at, product.price] %>
 <% end %>
 
-
 <%= line_chart data, messages: {empty: "Цена не менялась, #{product.price}$"} %>

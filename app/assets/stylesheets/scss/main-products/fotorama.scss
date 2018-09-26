@@ -1,0 +1,30 @@
+.post-products-default {
+  .fotorama__wrap {
+    height: 100%
+  }
+  .fotorama__stage {
+    height: 74%!important;
+  }
+  .fotorama__nav-wrap {
+    height: 25%;
+  }
+  .fotorama__nav--thumbs {
+    height: 100%;
+  }
+  .fotorama__nav__shaft {
+    height: 100%;
+  }
+  .fotorama__thumb-border {
+    height: calc(100% - 6px) !important;
+  }
+  .fotorama__nav__frame.fotorama__nav__frame--thumb.fotorama__active {
+    height: 100%!important;
+  }
+  .fotorama__nav__frame.fotorama__nav__frame--thumb {
+    height: 100%!important;
+  }
+}
+
+.fotorama__img {
+  height: 100%!important;
+}

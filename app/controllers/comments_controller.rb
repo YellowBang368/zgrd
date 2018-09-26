@@ -19,10 +19,3 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:title, :text, :user, :sender_id)
   end
 end
-
-# Overflow текста
-# Избранное
-# Удалить диалог
-# Редактировать продукт
-# Удалить продукт
-# отложенные в сессиях

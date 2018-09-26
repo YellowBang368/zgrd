@@ -1,12 +1,17 @@
 <div class="container">
   <section class="cards">
     <% show_products.each_with_index do |pr, index| %>
-      <% if index < 2 %>
-        <article class="card">
-      <% else %>
-        <article class="card">
-      <% end %>
-        <%= image_tag pr.avatar.url %>
+      <article class="card" data="<%= pr.id %>">
+        <% if pr.product_attachments.present? %>
+          <div class="fotorama" data-nav="thumbs" data-arrows="true">
+            <%= image_tag pr.avatar.url %>
+            <%= pr.product_attachments.each do |attachment| %>
+              <%= image_tag attachment.gallery.url %>
+            <% end %>
+          </div>
+        <% else %>
+          <%= image_tag pr.avatar.url %>
+        <% end %>
         <div class="description">
           <div class="row full-column">
             <div class="col" style="height: 170px">
@@ -42,24 +47,29 @@
                   <h4><%= pr.user.phone %></h4>
                 </div>
               <% end %>
-              <% if user_signed_in? && current_user.favorite_ids != nil && current_user.favorite_ids.include?("#{pr.id}") %>
-                <%= button_to unfavorite_path(:product_id => pr), method: "POST", class: "write-to-button to_favorite unfavorite" do %>
-                  Убрать из избранного<i class="fas fa-heart"></i>
-                <% end %>
-              <% elsif user_signed_in? %>
-                <%= button_to favorite_path(:product_id => pr), method: "POST", class: "write-to-button to_favorite favorite" do %>
-                  Добавить в избранное<i class="fas fa-heart transparent"></i>
-                <% end %>
+              <%= button_to pr, method: :get, class: "write-to-button" do %>
+                <%= I18n.t("products.learn-more") %>
               <% end %>
-              <% if !user_signed_in? %>
-                <% session[:favorite] = [] unless session[:favorite].present? %>
-                <% if session[:favorite].include?("#{pr.id}") %>
+              <% unless pr.user == current_user %>
+                <% if user_signed_in? && current_user.favorite_ids != nil && current_user.favorite_ids.include?("#{pr.id}") && controller_name != "users" %>
                   <%= button_to unfavorite_path(:product_id => pr), method: "POST", class: "write-to-button to_favorite unfavorite" do %>
                     Убрать из избранного<i class="fas fa-heart"></i>
                   <% end %>
-                <% else %>
+                <% elsif user_signed_in? && controller_name != "users" %>
                   <%= button_to favorite_path(:product_id => pr), method: "POST", class: "write-to-button to_favorite favorite" do %>
                     Добавить в избранное<i class="fas fa-heart transparent"></i>
+                  <% end %>
+                <% end %>
+                <% if !user_signed_in? && controller_name != "users" %>
+                  <% session[:favorite] = [] unless session[:favorite].present? %>
+                  <% if session[:favorite].include?("#{pr.id}") %>
+                    <%= button_to unfavorite_path(:product_id => pr), method: "POST", class: "write-to-button to_favorite unfavorite" do %>
+                      Убрать из избранного<i class="fas fa-heart"></i>
+                    <% end %>
+                  <% elsif controller_name != "users" %>
+                    <%= button_to favorite_path(:product_id => pr), method: "POST", class: "write-to-button to_favorite favorite" do %>
+                      Добавить в избранное<i class="fas fa-heart transparent"></i>
+                    <% end %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -73,10 +83,17 @@
               <% else %>
                 <button class="write-to-button">Пожаловаться<i class="fas fa-exclamation-triangle transparent"></i></button>
               <% end %>
+              <% unless controller_name == "users" %>
+                <button class="write-to-button open-price-difference" style="padding: 8px"><i class="fas fa-signature"></i></button>
+                <button class="write-to-button open-price-difference" style="padding: 8px"><i class="far fa-map"></i></button>
+                <button class="write-to-button open-price-difference" style="padding: 8px"><i class="fas fa-ellipsis-h"></i></button>
+              <% end %>
             </div>
           </div>
         </article>
-      <%= render partial: "products/price-difference", :locals => {:product => pr} if defined?(show_price_difference) && show_price_difference == true %>
+      <div class="post-price-difference" data="<%= pr.id %>">
+        <%= render partial: "products/price-difference", :locals => {:product => pr} if defined?(show_price_difference) && show_price_difference == true %>
+      </div>
       <% end %>
     </section>
 </div>

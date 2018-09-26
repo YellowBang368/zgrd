@@ -22,6 +22,7 @@ ru:
     write: "Написать"
     complain: "Пожаловаться"
     ads: "Объявления"
+    unpublished-ads: "Объявления в архиве"
     reviews: "Отзывы"
     change-status: "Изменить"
     upgrade-to-PRO: "Подписка PRO"

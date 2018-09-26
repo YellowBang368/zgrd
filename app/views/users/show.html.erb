@@ -7,9 +7,9 @@
       <div class="col-sm-9">
         <div class="user-window">
 
-          <div class="post-user-products">
+          <div class="post-user-objects post-user-products">
             <div class="upside-menu">
-              <% if @user.products.count > 0 %>
+              <% if @public_products.count > 0 %>
                 <ul class="choose-products-view">
                   <li class="open-products-column"><i class="fas fa-align-justify"></i></li>
                   <li class="open-products-row"><i class="fas fa-th-large"></i></li>
@@ -28,12 +28,12 @@
 
             </div>
 
-            <% if @user.products.count > 0 %>
+            <% if @public_products.count > 0 %>
               <div class="post-products-default post-products-column">
-                <%= render partial: "products/post-products-column", :locals => {:show_products => @user.products} %>
+                <%= render partial: "products/post-products-column", :locals => {:show_products => @public_products} %>
               </div>
               <div class="post-products-default post-products-row">
-                <%= render partial: "products/post-products-row", :locals => {:show_products => @user.products} %>
+                <%= render partial: "products/post-products-row", :locals => {:show_products => @public_products} %>
               </div>
             <% else %>
               <div class="vertical-align-text" style="height: calc(100% - 60px);">
@@ -49,7 +49,49 @@
             <% end %>
           </div>
 
-          <div class="post-comments">
+          <div class="post-user-objects post-user-private-products">
+            <div class="upside-menu">
+              <% if @private_products.count > 0 %>
+                <ul class="choose-products-view">
+                  <li class="open-products-column"><i class="fas fa-align-justify"></i></li>
+                  <li class="open-products-row"><i class="fas fa-th-large"></i></li>
+                </ul>
+                <% if current_user.present? && current_user == @user %>
+                   <%= button_to new_product_path, class: "add-new-product", method: :get do %>
+                    <%= I18n.t("products.add") %><i class="fas fa-plus"></i>
+                   <% end %>
+                   <% if current_user.status == "developer" %>
+                     <%= button_to new_estate_path, class: "add-new-product", method: :get do %>
+                      <%= I18n.t("estates.add") %><i class="fas fa-plus"></i>
+                     <% end %>
+                   <% end %>
+                <% end %>
+              <% end %>
+
+            </div>
+
+            <% if @private_products.count > 0 %>
+              <div class="post-products-default post-products-column">
+                <%= render partial: "products/post-products-column", :locals => {:show_products => @private_products} %>
+              </div>
+              <div class="post-products-default post-products-row">
+                <%= render partial: "products/post-products-row", :locals => {:show_products => @private_products} %>
+              </div>
+            <% else %>
+              <div class="vertical-align-text" style="height: calc(100% - 60px);">
+                <% if current_user == @user %>
+                  <h4 class="empty-text"><%= I18n.t("profile.notifications.you-do-not-have-any-ads-yet") %></h4>
+                  <%= button_to new_product_path, class: "add-new-product", method: :get do %>
+                    <%= I18n.t("products.add") %><i class="fas fa-plus"></i>
+                  <% end %>
+                <% else %>
+                  <h4 class="empty-text"><%= I18n.t("profile.notifications.this-user-does-not-have-any-ads-yet") %></h4>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="post-user-objects post-comments">
             <%= render partial: "post-comments" %>
           </div>
 
@@ -74,6 +116,7 @@
           </p>
           <ul class="user-menu">
             <li class="open-user-products"><p><%= I18n.t("profile.ads") %></p></li>
+            <li class="open-user-private-products"><p><%= I18n.t("profile.unpublished-ads") %></p></li>
             <li class="open-user-comments"><p><%= I18n.t("profile.reviews") %></p></li>
             <% if user_signed_in? && @user == current_user %>
               <li class="open-dialog-status"><p><%= I18n.t("profile.change-status") %></p></li>
