@@ -1,4 +1,8 @@
 $(document).ready(function(){
+  if (parseInt($("#favorite_counter").html().replace("(", "").replace(")", "")) == 0) {
+    $("#favorite_counter").hide()
+  }
+
   $(".to_favorite").click(function(){
     var $this = $(this);
     if ($this.hasClass("favorite")) {
@@ -8,6 +12,10 @@ $(document).ready(function(){
       setTimeout(function(){
         $this.closest("form").attr('action', $action)
       }, 500);
+      var $current_favorite_counter = $("#favorite_counter").html().replace("(", "").replace(")", "");
+      var $new_favorite_counter = parseInt($current_favorite_counter) + 1
+      $("#favorite_counter").html("(" + $new_favorite_counter + ")");
+      if ($current_favorite_counter == 0 && $new_favorite_counter > 0 ) { $("#favorite_counter").show() }
     } else {
       $this.html("Добавить в избранное<i class='fas fa-heart transparent'></i>");
       $this.removeClass("unfavorite").addClass("favorite");
@@ -15,6 +23,11 @@ $(document).ready(function(){
       setTimeout(function(){
         $this.closest("form").attr('action', $action)
       }, 500);
+      var $current_favorite_counter = $("#favorite_counter").html().replace("(", "").replace(")", "");
+      var $new_favorite_counter = parseInt($current_favorite_counter) - 1
+      $("#favorite_counter").html("(" + $new_favorite_counter + ")");
+      if ($new_favorite_counter == 0) { $("#favorite_counter").hide() }
+
     }
   })
 

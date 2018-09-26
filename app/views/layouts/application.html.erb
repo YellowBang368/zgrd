@@ -57,12 +57,13 @@
                 <% session[:locale] = "en" unless session[:locale].present? %>
                 <li><a class="vertical-align-text open-dialog-country" id="local-settings-box" href="#"><i class="fab fa-telegram-plane"></i>  <%= puts_location(request.remote_ip) %> <%= render partial: "layouts/currency_icon" %> <%= session[:currency] %> <%= session[:locale].upcase %></a></li>
                 <li><a class="vertical-align-text relative" href="/favorite_products"><i class="fas fa-heart"></i><%= I18n.t('header.deferred') %>
-                  <% if user_signed_in? && current_user.favorite_ids.count > 0 %>
-                    <span class="new-deferred-circle"><i class="fas fa-circle"></i></span>
+                <span id="favorite_counter" style="color: #69D2E7; margin-left: 5px;">
+                  <% if user_signed_in? %>
+                    (<%= current_user[:favorite_ids].count %>)
+                  <% else %>
+                    (<%= session[:favorite].count %>)
                   <% end %>
-                  <% if !user_signed_in? && session[:favorite].count > 0 %>
-                    <span class="new-deferred-circle"><i class="fas fa-circle"></i></span>
-                  <% end %>
+                </span>
                 </a></li>
                 <li><a class="vertical-align-text" href="#"><i class="fas fa-list-ul"></i><%= I18n.t('header.comparison') %></a></li>
                 <li class="notification-bell">
